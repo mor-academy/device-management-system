@@ -1,0 +1,4 @@
+vi:
+  static_pages:
+    index:
+      hello: "Xin chào"
