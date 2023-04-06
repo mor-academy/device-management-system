@@ -1,0 +1,4 @@
+en:
+  static_pages:
+    index:
+      hello: "Hello world" 
