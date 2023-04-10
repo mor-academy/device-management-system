@@ -1,0 +1,8 @@
+en:
+  devise:
+    shared:
+      links:
+        login_with_google: "Login with Google"
+    sessions:
+      new:
+        login_title: "Login to the system"   

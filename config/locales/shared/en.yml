@@ -1,0 +1,5 @@
+en:
+  shared:
+    device_management_system: "Device Management System"
+    login: "Login"
+    logout: "Logout"

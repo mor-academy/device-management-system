@@ -1,0 +1,8 @@
+vi:
+  devise:
+    shared:
+      links:
+        login_with_google: "Đăng nhập với Google"
+    sessions:
+      new:
+        login_title: "Đăng nhập vào hệ thống"

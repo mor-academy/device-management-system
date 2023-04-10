@@ -1,0 +1,5 @@
+vi:
+  shared:
+    device_management_system: "Hệ thống quản lý thiết bị"
+    login: "Đăng nhập"
+    logout: "Đăng xuất"
