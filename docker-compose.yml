@@ -1,0 +1,37 @@
+version: "3.4"
+
+services:
+  web:
+    build: .
+    tty: true
+    stdin_open: true
+    env_file: .env
+    command: sh -c "docker-start.sh"
+    volumes:
+      - .:/dms
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+      - redis
+  
+  redis:
+    image: redis:7-alpine
+    command: redis-server
+    ports:
+      - 6379:6379
+    volumes:
+    - ./tmp/redis_data:/var/lib/redis/data
+  
+  db:
+    image: postgres
+    restart: always
+    env_file: .env
+    ports:
+      - 5436:5432
+    volumes:
+      - ./tmp/postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres:
+  redis:
