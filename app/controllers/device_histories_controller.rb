@@ -1,0 +1,2 @@
+class DeviceHistoriesController < ApplicationController
+end

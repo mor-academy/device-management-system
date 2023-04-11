@@ -1,0 +1,34 @@
+vi:
+  activerecord:
+    attributes:
+      users:
+        status:
+          employee: "Nhân viên"
+          quit: "Cựu nhân viên"
+        roles:
+          staff: "Nhân viên"
+          system_admin: "Quản trị viên hệ thống"
+          bod: "Ban giám đốc"
+          device_manager: "Quản lí thiết bị "
+          direct_manager: "Quản lý trực tiếp"
+      brands:
+        status:
+          enabled: "Đang hoạt động"
+          disabled: "Dừng hoạt động"
+      user_devices:
+        status:
+          ready: "Sẵn sàng cho mượn"
+          fixing: "Đang sửa chữa"
+          using: "Đang được sử dụng"
+      user_confirm_devices:
+        admin_device_status:
+          good: "Sử dụng tốt"
+          not_good: "Sử dụng không tốt"
+        staff_device_status:
+          good: "Sử dụng tốt"
+          not_good: "Sử dụng không tốt"
+      device:
+        status:
+          ready: "Sẵn sàng cho mượn"
+          fixing: "Đang sửa chữa"
+          using: "Đang được sử dụng"

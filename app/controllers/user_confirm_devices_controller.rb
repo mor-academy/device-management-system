@@ -1,0 +1,2 @@
+class UserConfirmDevicesController < ApplicationController
+end
