@@ -1,0 +1,11 @@
+vi:
+  layouts:
+    shared:
+      navigation:
+        page:
+          logo: "DMS"
+          brand: "Thương hiệu"
+          home: "Trang chủ"
+      top:
+        topbar:
+          logout: "Đăng xuất"
