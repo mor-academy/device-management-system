@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
+  before_action :authenticate_user!
+  layout :app_layout
 
   private
 
@@ -10,5 +12,9 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     {locale: I18n.locale}
+  end
+
+  def app_layout
+    devise_controller? ? "with_out_login" : "application"
   end
 end

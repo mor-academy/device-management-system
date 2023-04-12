@@ -1,0 +1,11 @@
+en:
+  layouts:
+    shared:
+      navigation:
+        page:
+          logo: "DMS"
+          brand: "Brands"
+          home: "Home"
+      top:
+        topbar:
+          logout: "Log Out"

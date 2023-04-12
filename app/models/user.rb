@@ -11,6 +11,10 @@ class User < ApplicationRecord
   enum status: {employee: 0, resigned: 1}
   enum role: {staff: 0, system_admin: 1, bod: 2, device_manager: 3, direct_manager: 4}
 
+  def fullname
+    "#{last_name} #{first_name}"
+  end
+
   class << self
     def from_omniauth auth
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

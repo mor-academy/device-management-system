@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     root "static_pages#index"
 
     devise_for :users, skip: :omniauth_callbacks
+
+    resources :brands
   end
 end

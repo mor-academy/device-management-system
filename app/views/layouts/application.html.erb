@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html x-data="data()">
   <head>
-    <title><%= t "shared.device_management_system" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= render "layouts/application/head" %>
   </head>
-
   <body>
-    <%= yield %>
+    <div class="flex h-screen bg-gray-50" :class="{ 'overflow-hidden': isSideMenuOpen }" >
+      <%= render "layouts/shared/navigation/navigations" %>
+      <div class="flex flex-col flex-1 w-full">
+        <header class="z-10 py-4 border-b-2 border-slate-100 bg-white dark:bg-gray-800">
+          <%= render "layouts/shared/top/topbar" %>
+        </header>
+        <main class="h-full overflow-y-auto ">
+          <div class="container py-1 my-1 mx-auto grid">
+            <%= yield %>
+          </div>
+        </main>
+      </div>
+    </div>
   </body>
+  <%= render "layouts/javacripts" %>
 </html>
