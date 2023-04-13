@@ -4,8 +4,8 @@ en:
       navigation:
         page:
           logo: "DMS"
-          brand: "Brands"
           home: "Home"
+          companies: "Companies"
       top:
         topbar:
           logout: "Log Out"

@@ -1,0 +1,27 @@
+<%= form_with model: company, data: { turbo: false } do |f| %>
+  <div class="mb-2">
+    <%= f.label :website %>
+    <%= f.url_field :website %>
+  </div>
+  <div class="mb-4">
+    <%= f.fields_for :office_infos do |office_info| %>
+      <%= f.label :name %>
+      <%= office_info.text_field :name %>
+
+      <%= f.label :information %>
+      <%= office_info.text_field :information %>
+
+      <%= f.label :address %>
+      <%= office_info.text_field :address %>
+
+      <%= f.label :email %>
+      <%= office_info.email_field :email %>
+
+      <%= f.label :phone_number %>
+      <%= office_info.telephone_field :phone_number %>
+    <% end %>
+  </div>
+  <div>
+    <%= f.submit action_name&.to_sym == :edit ? t(".edit_company") : t(".add_company") %>
+  <div>
+<% end %>

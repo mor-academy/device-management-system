@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
   def is_active_navigation? controller
     controller_name&.to_sym == controller
   end

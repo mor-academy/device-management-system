@@ -1,0 +1,35 @@
+vi:
+  companies:
+    form:
+      website: "Trang web: "
+      name: "Tên công ty: "
+      information: "Thông tin công ty: "
+      address: "Địa chỉ: "
+      email: "Email: "
+      phone_number: "Số điện thoại: "
+      edit_company: "Chỉnh sửa công ty"
+      add_company: "Thêm công ty"
+ 
+    edit:
+      edit_company: "Chỉnh sửa công ty"
+
+    create:
+      success: "Tạo thành công một công ty mới"
+
+    update:
+      success: "Đã chỉnh sửa công ty thành công"
+
+    index:
+      list_of_companies: "Danh sách các công ty"
+      add_a_new_company: "Thêm một công ty mới"
+      company_info: "Thông tin công ty"
+      address: "Địa chỉ"
+      phone_number: "Số điện thoại"
+      website: "Trang web"
+      action: "Hành động"
+
+    new:
+      new_company: "Thêm công ty mới"
+    
+    show:
+      see_list_of_office: Xem danh sách văn phòng

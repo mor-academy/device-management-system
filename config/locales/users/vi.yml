@@ -1,0 +1,6 @@
+vi:
+  users:
+    mailer:
+      subject: "[DMS] Thông báo thay đổi văn phòng"
+      office_change:
+        content: "Chúc mừng bạn đã trở thành thành viên của công ty %{company_name}, văn phòng %{office_name} vào ngày %{updated_at}"

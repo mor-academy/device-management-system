@@ -9,6 +9,15 @@ Rails.application.routes.draw do
 
     devise_for :users, skip: :omniauth_callbacks
 
-    resources :brands
+    resources :companies do
+      resources :offices do 
+        member do
+          get :new_users
+          patch :update_users
+        end
+      end
+    end
   end
+
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end

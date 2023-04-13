@@ -18,9 +18,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_101443) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "brands_id"
+    t.bigint "brand_id"
     t.datetime "deleted_at"
-    t.index ["brands_id"], name: "index_accessories_on_brands_id"
+    t.index ["brand_id"], name: "index_accessories_on_brand_id"
     t.index ["deleted_at"], name: "index_accessories_on_deleted_at"
   end
 
@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_101443) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.text "website", null: false
+    t.text "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
@@ -54,12 +54,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_101443) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "devices_id"
-    t.bigint "accessories_id"
+    t.bigint "device_id"
+    t.bigint "accessory_id"
     t.datetime "deleted_at"
-    t.index ["accessories_id"], name: "index_device_accessories_on_accessories_id"
+    t.index ["accessory_id"], name: "index_device_accessories_on_accessory_id"
     t.index ["deleted_at"], name: "index_device_accessories_on_deleted_at"
-    t.index ["devices_id"], name: "index_device_accessories_on_devices_id"
+    t.index ["device_id"], name: "index_device_accessories_on_device_id"
   end
 
   create_table "device_histories", force: :cascade do |t|
@@ -67,10 +67,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_101443) do
     t.datetime "output_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "devices_id"
+    t.bigint "device_id"
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_device_histories_on_deleted_at"
-    t.index ["devices_id"], name: "index_device_histories_on_devices_id"
+    t.index ["device_id"], name: "index_device_histories_on_device_id"
   end
 
   create_table "devices", force: :cascade do |t|
@@ -84,21 +84,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_101443) do
     t.string "brand", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "offices_id"
-    t.bigint "categories_id"
+    t.bigint "office_id"
+    t.bigint "category_id"
     t.datetime "deleted_at"
-    t.index ["categories_id"], name: "index_devices_on_categories_id"
+    t.index ["category_id"], name: "index_devices_on_category_id"
     t.index ["deleted_at"], name: "index_devices_on_deleted_at"
-    t.index ["offices_id"], name: "index_devices_on_offices_id"
+    t.index ["office_id"], name: "index_devices_on_office_id"
   end
 
   create_table "group_users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "groups_id"
+    t.bigint "group_id"
+    t.bigint "user_id"
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_group_users_on_deleted_at"
-    t.index ["groups_id"], name: "index_group_users_on_groups_id"
+    t.index ["group_id"], name: "index_group_users_on_group_id"
+    t.index ["user_id"], name: "index_group_users_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -106,17 +108,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_101443) do
     t.string "project_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "users_id"
+    t.bigint "user_id"
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_groups_on_deleted_at"
-    t.index ["users_id"], name: "index_groups_on_users_id"
+    t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
   create_table "office_infos", force: :cascade do |t|
     t.string "name", null: false
-    t.text "information", null: false
-    t.text "address", null: false
-    t.text "email", null: false
+    t.text "information"
+    t.text "address"
+    t.text "email"
+    t.string "phone_number"
     t.bigint "info_id", null: false
     t.string "info_type", null: false
     t.datetime "created_at", null: false
@@ -128,9 +131,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_101443) do
   create_table "offices", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "companies_id"
+    t.bigint "company_id"
     t.datetime "deleted_at"
-    t.index ["companies_id"], name: "index_offices_on_companies_id"
+    t.index ["company_id"], name: "index_offices_on_company_id"
     t.index ["deleted_at"], name: "index_offices_on_deleted_at"
   end
 
@@ -141,12 +144,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_101443) do
     t.text "information"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "users_id"
-    t.bigint "devices_id"
+    t.bigint "user_id"
+    t.bigint "device_id"
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_requests_on_deleted_at"
-    t.index ["devices_id"], name: "index_requests_on_devices_id"
-    t.index ["users_id"], name: "index_requests_on_users_id"
+    t.index ["device_id"], name: "index_requests_on_device_id"
+    t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
   create_table "user_confirm_devices", force: :cascade do |t|
@@ -157,10 +160,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_101443) do
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_devices_id"
+    t.bigint "user_device_id"
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_user_confirm_devices_on_deleted_at"
-    t.index ["user_devices_id"], name: "index_user_confirm_devices_on_user_devices_id"
+    t.index ["user_device_id"], name: "index_user_confirm_devices_on_user_device_id"
   end
 
   create_table "user_devices", force: :cascade do |t|
@@ -169,8 +172,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_101443) do
     t.datetime "output_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "device_id"
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_user_devices_on_deleted_at"
+    t.index ["device_id"], name: "index_user_devices_on_device_id"
+    t.index ["user_id"], name: "index_user_devices_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -209,16 +216,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_101443) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
-  add_foreign_key "accessories", "brands", column: "brands_id"
-  add_foreign_key "device_accessories", "accessories", column: "accessories_id"
-  add_foreign_key "device_accessories", "devices", column: "devices_id"
-  add_foreign_key "device_histories", "devices", column: "devices_id"
-  add_foreign_key "devices", "categories", column: "categories_id"
-  add_foreign_key "devices", "offices", column: "offices_id"
-  add_foreign_key "group_users", "groups", column: "groups_id"
-  add_foreign_key "groups", "users", column: "users_id"
-  add_foreign_key "offices", "companies", column: "companies_id"
-  add_foreign_key "requests", "devices", column: "devices_id"
-  add_foreign_key "requests", "users", column: "users_id"
-  add_foreign_key "user_confirm_devices", "user_devices", column: "user_devices_id"
+  add_foreign_key "accessories", "brands"
+  add_foreign_key "device_accessories", "accessories"
+  add_foreign_key "device_accessories", "devices"
+  add_foreign_key "device_histories", "devices"
+  add_foreign_key "devices", "categories"
+  add_foreign_key "devices", "offices"
+  add_foreign_key "group_users", "groups"
+  add_foreign_key "group_users", "users"
+  add_foreign_key "groups", "users"
+  add_foreign_key "offices", "companies"
+  add_foreign_key "requests", "devices"
+  add_foreign_key "requests", "users"
+  add_foreign_key "user_confirm_devices", "user_devices"
+  add_foreign_key "user_devices", "devices"
+  add_foreign_key "user_devices", "users"
 end

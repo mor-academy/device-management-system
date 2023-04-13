@@ -1,0 +1,26 @@
+<div class="company">
+  <div>
+    <%= @company.website %>
+  </div>
+  <div>
+    <%= @company.office_info&.name %>
+  </div>
+  <div>
+    <%= @company.office_info&.information %>
+  </div>
+   <div>
+    <%= @company.office_info&.address %>
+  </div>
+   <div>
+    <%= @company.office_info&.email %>
+  </div>
+   <div>
+    <%= @company.office_info&.phone_number %>
+  </div>
+  <div>
+    <%= button_to t("shared.delete"), company_path(@company), method: :delete %>
+    <%= link_to t("shared.edit"), edit_company_path(@company) %>
+  </div>
+  <br>
+  <%= link_to t(".see_list_of_office"), company_offices_path(@company) %>
+</div>
