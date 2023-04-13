@@ -8,8 +8,12 @@ class User < ApplicationRecord
 
   belongs_to :office, optional: true
 
+  after_update :send_mail_office_change
+
   enum status: {employee: 0, resigned: 1}
   enum role: {staff: 0, system_admin: 1, bod: 2, device_manager: 3, direct_manager: 4}
+
+  scope :without_office, ->{where office_id: nil}
 
   def fullname
     "#{last_name} #{first_name}"
@@ -25,5 +29,11 @@ class User < ApplicationRecord
         user.avatar = auth.info.image
       end
     end
+  end
+
+  private
+
+  def send_mail_office_change
+    Users::Mailer.office_change(self).deliver_later
   end
 end

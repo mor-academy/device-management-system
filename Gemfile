@@ -57,6 +57,9 @@ gem "cancancan"
 # https://github.com/heartcombo/devise
 gem "devise"
 
+# https://github.com/faker-ruby/faker
+gem "faker"
+
 # https://github.com/omniauth/omniauth
 gem "omniauth"
 
@@ -66,12 +69,18 @@ gem "omniauth-google-oauth2"
 # https://github.com/cookpad/omniauth-rails_csrf_protection
 gem "omniauth-rails_csrf_protection"
 
+# https://github.com/ddnexus/pagy
+gem "pagy"
+
 # https://github.com/rubysherpas/paranoia
 gem "paranoia", "~> 2.6"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i(mri mingw x64_mingw)
+
+  # https://github.com/fgrehm/letter_opener_web
+  gem "letter_opener_web"
 
   # https://github.com/rubocop/rubocop
   gem "rubocop", require: false

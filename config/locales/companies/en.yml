@@ -1,0 +1,35 @@
+en:
+  companies:
+    form:
+      website: "Website"
+      name: "Name"
+      information: "Information"
+      address: "Address"
+      email: "Email"
+      phone_number: "Phone number"
+      edit_company: "Edit company"
+      add_company: "Add company"
+
+    edit:
+      edit_company: "Edit company"
+
+    create:
+      success: "Successfully create a new company"
+
+    update:
+      success: "Edited company successfully"
+
+    index:
+      list_of_companies: "List of companies"
+      add_a_new_company: "Add a new company"
+      company_info: "Company info"
+      address: "Address"
+      phone_number: "Phone number"
+      website: "Website"
+      action: "Action"
+   
+    new:
+      new_company: "New company"
+
+    show:
+      see_list_of_office: See list of offices

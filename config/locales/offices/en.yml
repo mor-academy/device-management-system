@@ -1,0 +1,47 @@
+en:
+  offices:
+    form:
+      name: "Name"
+      information: "Information"
+      address: "Address"
+      email: "Email"
+      phone_number: "Phone number"
+      edit_office: "Edit office"
+      add_office: "Add office"
+
+    edit:
+      edit_office: "Edit office"
+
+    create:
+      success: "Successfully create a new office"
+
+    update:
+      success: "Edited office successfully"
+
+    update_users:
+      success: "Successfully added employees to the office"
+
+    index:
+      list_of_offices: "List of offices"
+      add_a_new_office: "Add a new office"
+      office_info: "Office info"
+      address: "Address"
+      phone_number: "Phone number"
+      website: "Website"
+      action: "Action"
+   
+    show:
+      list_users: List Users
+      add_users: Add users
+      user_info: User info
+      status: Status
+      action: "Action"
+
+    new:
+      new_office: "New office"
+
+    new_users:
+      list_users_without_office: "List users without office"
+      add_users_to_office: "Add users to the office"
+      user_info: User info
+      status: Status

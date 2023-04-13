@@ -1,0 +1,47 @@
+vi:
+  offices:
+    form:
+      name: "Tên văn phòng: "
+      information: "Thông tin văn phòng: "
+      address: "Địa chỉ: "
+      email: "Email: "
+      phone_number: "Số điện thoại: "
+      edit_office: "Chỉnh sửa văn phòng"
+      add_office: "Thêm văn phòng"
+ 
+    edit:
+      edit_office: "Chỉnh sửa văn phòng"
+
+    create:
+      success: "Tạo thành công một văn phòng mới"
+
+    update:
+      success: "Đã chỉnh sửa văn phòng thành công"
+
+    update_users:
+      success: "Thêm thành công nhân viên vào văn phòng"
+
+    index:
+      list_of_offices: "Danh sách các văn phòng"
+      add_a_new_office: "Thêm một văn phòng mới"
+      office_info: "Thông tin văn phòng"
+      address: "Địa chỉ"
+      phone_number: "Số điện thoại"
+      website: "Trang web"
+      action: "Hành động"
+
+    show:
+      list_users: Danh sách nhân viên
+      add_users: Thêm nhân viên
+      user_info: Thông tin nhân viên
+      status: "Trạng thái"
+      action: "Thao tác"
+
+    new:
+      new_office: "Thêm văn phòng mới"
+
+    new_users:
+      list_users_without_office: "Danh sách nhân viên chưa có văn phòng"
+      add_users_to_office: "Thêm nhân viên vào văn phòng"
+      user_info: Thông tin nhân viên
+      status: Trạng thái

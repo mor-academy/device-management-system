@@ -1,0 +1,33 @@
+<div class="grid grid-cols-4 gap-4 items-center">
+  <div class="col-span-3">
+    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+      <%= t ".list_of_offices" %>
+    </h2>
+  </div>
+  <div>
+    <%= link_to new_company_office_path, class: "float-right rounded-lg pointer-events-auto bg-indigo-600 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-indigo-500" do %>
+      <i class="fa-solid fa-plus mr-2 text-sm"></i>
+      <span class="font-semibold text-sm"><%= t ".add_a_new_office" %></span>
+    <% end %>
+  </div>
+</div>
+<div class="w-full overflow-hidden rounded-lg shadow-xs border">
+  <div class="w-full overflow-x-auto">
+    <table class="w-full whitespace-no-wrap">
+      <thead>
+        <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+          <th class="px-4 py-3"><%= t ".office_info" %></th>
+          <th class="px-4 py-3"><%= t ".address" %></th>
+          <th class="px-4 py-3"><%= t ".phone_number" %></th>
+          <th class="px-4 py-3"><%= t ".action" %></th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+        <%= render @offices %>
+        <tr class="text-gray-700">
+          <td class="px-4 py-3 text-sm text-right" colspan="6"><%= pagy_nav(@pagy).html_safe %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

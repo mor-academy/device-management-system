@@ -4,8 +4,8 @@ vi:
       navigation:
         page:
           logo: "DMS"
-          brand: "Thương hiệu"
           home: "Trang chủ"
+          companies: "Công ty"
       top:
         topbar:
           logout: "Đăng xuất"
