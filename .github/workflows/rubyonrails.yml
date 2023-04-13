@@ -50,5 +50,5 @@ jobs:
         with:
           bundler-cache: true
       # Add or replace any other lints here
-      - name: Run rubocop
+      - name: Run rubocop check
         run: bin/bundle exec rubocop
