@@ -84,3 +84,6 @@ Rails/ReflectionClassName:
 
 Rails/SkipsModelValidations:
   Enabled: false
+
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false

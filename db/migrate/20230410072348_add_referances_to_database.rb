@@ -1,12 +1,9 @@
 class AddReferancesToDatabase < ActiveRecord::Migration[7.0]
   def change
+    add_reference :devices, :brand, foreign_key: true
+    add_reference :devices, :device, foreign_key: {to_table: :devices}
     add_reference :devices, :office, foreign_key: true
     add_reference :devices, :category, foreign_key: true
-
-    add_reference :device_accessories, :device, foreign_key: true
-    add_reference :device_accessories, :accessory, foreign_key: true
-
-    add_reference :accessories, :brand, foreign_key: true
 
     add_reference :offices, :company, foreign_key: true
 

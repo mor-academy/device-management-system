@@ -14,16 +14,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_101443) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "accessories", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "brand_id"
-    t.datetime "deleted_at"
-    t.index ["brand_id"], name: "index_accessories_on_brand_id"
-    t.index ["deleted_at"], name: "index_accessories_on_deleted_at"
-  end
-
   create_table "brands", force: :cascade do |t|
     t.string "name", null: false
     t.integer "status", default: 0, null: false
@@ -50,18 +40,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_101443) do
     t.index ["deleted_at"], name: "index_companies_on_deleted_at"
   end
 
-  create_table "device_accessories", force: :cascade do |t|
-    t.integer "status", default: 0, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "device_id"
-    t.bigint "accessory_id"
-    t.datetime "deleted_at"
-    t.index ["accessory_id"], name: "index_device_accessories_on_accessory_id"
-    t.index ["deleted_at"], name: "index_device_accessories_on_deleted_at"
-    t.index ["device_id"], name: "index_device_accessories_on_device_id"
-  end
-
   create_table "device_histories", force: :cascade do |t|
     t.datetime "input_date"
     t.datetime "output_date"
@@ -81,14 +59,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_101443) do
     t.text "source", null: false
     t.integer "status", default: 0, null: false
     t.text "images"
-    t.string "brand", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "brand_id"
+    t.bigint "device_id"
     t.bigint "office_id"
     t.bigint "category_id"
     t.datetime "deleted_at"
+    t.index ["brand_id"], name: "index_devices_on_brand_id"
     t.index ["category_id"], name: "index_devices_on_category_id"
     t.index ["deleted_at"], name: "index_devices_on_deleted_at"
+    t.index ["device_id"], name: "index_devices_on_device_id"
     t.index ["office_id"], name: "index_devices_on_office_id"
   end
 
@@ -216,11 +197,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_101443) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
-  add_foreign_key "accessories", "brands"
-  add_foreign_key "device_accessories", "accessories"
-  add_foreign_key "device_accessories", "devices"
   add_foreign_key "device_histories", "devices"
+  add_foreign_key "devices", "brands"
   add_foreign_key "devices", "categories"
+  add_foreign_key "devices", "devices"
   add_foreign_key "devices", "offices"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"

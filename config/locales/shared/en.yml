@@ -6,6 +6,7 @@ en:
     edit: "Edit"
     detail: "Detail"
     delete: "Delete"
+    processing_failed: "Processing failed, please try again"
     company_does_not_exist: "This company does not exist"
     office_does_not_exist: "This office does not exist"
-    processing_failed: "Processing failed, please try again"
+    device_does_not_exist: "This device does not exist"

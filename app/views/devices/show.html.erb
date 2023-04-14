@@ -1,0 +1,112 @@
+<div class="lg:grid gap-6 my-4 mx-[-5px] lg:grid-cols-12 sm:grid-cols-1">
+  <div class="grid lg:col-span-8 gap-7">
+    <div class="bg-white p-8 grid lg:grid-cols-12 sm gap-2:grid-cols-5 shadow rounded-md rounded-tl-2xl">
+      <div class="lg:col-span-4 sm:col-span-12">
+        This is device image
+      </div>
+      <div class="lg:col-span-8 sm:col-span-12 relative">
+        <h2 class="text-xl font-medium"><%= @device.name %><h2>
+        <div class="text-gray-500 mb-4 mt-2 text-sm">
+          <%= t ".code" %><%= @device.code %>
+          <span class="ml-4 mr-4">|</span>
+          <%= t ".price" %><%= @device.price %>
+          <span class="ml-4 mr-4">|</span> 
+          <%= t ".brand" %> <%= @device.brand&.name || "No brand" %>
+        </div>
+        <h2 class="text-xl font-medium mb-2"><%= t ".description" %><h2>
+        <div class="text-gray-500 text-sm">
+          <%= @device.description %>
+        </div>
+        <div class="absolute top-[-20px] right-[-20px] px-2 py-2 font-semibold leading-tight text-indigo-600 bg-indigo-100 rounded-full w-36 text-center text-sm">
+          <%= Device.human_enum_name :status, @device.status %>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white p-5 shadow rounded-md rounded-bl-2xl">
+      <h2 class="text-xl font-medium mb-2"><%= t ".usage_history" %><h2>
+      <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dd class="mt-1 text-sm text-gray-900 sm:col-span-3 sm:mt-0">
+          <ul role="list">
+            <% @device.user_devices.each do |user_device| %>
+              <li class="flex items-center justify-between py-4 pl-3 pr-4 my-3 text-sm shadow">
+                <div class="flex items-center text-sm">
+                  <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                    <%= image_tag avatar_url(user_device.user), class: "object-cover w-full h-full rounded-full", loading: "lazy", alt: "" %>
+                    <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                  </div>
+                  <div class="w-40">
+                    <p class="font-semibold"><%= user_device.user.fullname %></p>
+                    <p class="text-xs text-gray-600">
+                      <%= user_device.user.email %>
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 text-gray-500">
+                  <div>
+                    <i class="fa-regular fa-calendar-plus w-4 ml-[-0.7px]"></i>
+                    <%= convert_date_ymd user_device&.input_date %>
+                  </div>
+                  /
+                  <div>
+                    <i class="fa-regular fa-calendar-check w-4"></i>
+                    <%= convert_date_ymd user_device&.output_date %>
+                  </div>
+                </div>
+                <span class="px-2 py-2 font-semibold text-indigo-600 rounded-full w-36 text-right">
+                  <%= UserDevice.human_enum_name :status, user_device&.status %>
+                </span>
+              </li>
+            <% end %>
+          </ul>
+        </dd>
+      </div>
+    </div>
+  </div>
+  <div class="grid lg:col-span-4 gap-7">
+    <div class="bg-white p-5 shadow rounded-md rounded-tr-2xl">
+      <h2 class="text-xl font-medium mb-2"><%= t ".related_devices" %><h2>
+      <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dd class="mt-1 text-sm text-gray-900 sm:col-span-3 sm:mt-0">
+          <ul role="list">
+            <% @device.sub_devices.each do |sub_device| %>
+              <li class="flex items-center justify-between py-3 pl-3 pr-4 my-2 text-sm shadow">
+                <div class="flex w-0 flex-1 items-center">
+                  <span class="ml-2 w-0 flex-1 truncate">
+                    <%= link_to sub_device.name, device_path(sub_device) %>
+                  </span>
+                </div>
+                <div class="ml-4 flex-shrink-0">
+                  <div class="font-medium text-indigo-600 hover:text-indigo-500">
+                    <%= Device.human_enum_name :status, sub_device.status %>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </dd>
+      </div>
+    </div>
+    <div class="bg-white p-5 shadow rounded-md rounded-br-2xl">  
+      <h2 class="text-xl font-medium mb-2"><%= t ".repair_history" %><h2>
+      <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dd class="mt-1 text-sm text-gray-900 sm:col-span-3 sm:mt-0">
+          <ul role="list">
+            <% @device.device_histories.each do |device_history| %>
+              <li class="flex items-center justify-around py-3 pl-3 pr-4 my-2 text-sm shadow">
+                <div>
+                  <i class="fa-regular fa-calendar-plus"></i>
+                  <%= convert_date_ymd device_history.input_date %>
+                </div> 
+                /
+                <div>
+                  <i class="fa-regular fa-calendar-check"></i>
+                  <%= convert_date_ymd device_history.output_date %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </dd>
+      </div>
+    </div>
+  </div>
+</div>

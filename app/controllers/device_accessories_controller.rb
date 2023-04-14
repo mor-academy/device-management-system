@@ -1,2 +1,0 @@
-class DeviceAccessoriesController < ApplicationController
-end

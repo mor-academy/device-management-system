@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   belongs_to :office, optional: true
 
+  has_many :user_devices, dependent: :destroy
+
   after_update :send_mail_office_change
 
   enum status: {employee: 0, resigned: 1}

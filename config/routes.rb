@@ -17,6 +17,8 @@ Rails.application.routes.draw do
         end
       end
     end
+    resources :user_devices, only: :index
+    resources :devices, only: :show
   end
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?

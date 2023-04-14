@@ -12,9 +12,6 @@ class AddDeletedAtToDatabase < ActiveRecord::Migration[7.0]
     add_column :devices, :deleted_at, :datetime
     add_index :devices, :deleted_at
 
-    add_column :accessories, :deleted_at, :datetime
-    add_index :accessories, :deleted_at
-
     add_column :brands, :deleted_at, :datetime
     add_index :brands, :deleted_at
 
@@ -35,9 +32,6 @@ class AddDeletedAtToDatabase < ActiveRecord::Migration[7.0]
 
     add_column :group_users, :deleted_at, :datetime
     add_index :group_users, :deleted_at
-
-    add_column :device_accessories, :deleted_at, :datetime
-    add_index :device_accessories, :deleted_at
 
     add_column :user_devices, :deleted_at, :datetime
     add_index :user_devices, :deleted_at

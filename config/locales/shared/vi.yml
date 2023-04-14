@@ -6,6 +6,7 @@ vi:
     edit: "Chỉnh sửa"
     detail: "Chi tiết"
     delete: "Xóa"
+    processing_failed: "Xử lý không thành công, vui lòng thử lại"
     company_does_not_exist: "Không tồn tại công ty này"
     office_does_not_exist: "Không tồn tại văn phòng này"
-    processing_failed: "Processing failed, please try again"
+    device_does_not_exist: "Không tồn tại thiết bị này"
