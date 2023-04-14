@@ -1,0 +1,10 @@
+vi:
+  devices:
+    show:
+      code: "Mã: "
+      price: "Giá: "
+      brand: "Thương hiệu: "
+      description: "Mô tả"
+      usage_history: "Lịch sử sử dụng"
+      related_devices: "Thiết bị liên quan"
+      repair_history: "Lịch sử sửa chữa"

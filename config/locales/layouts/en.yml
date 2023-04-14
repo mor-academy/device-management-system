@@ -6,6 +6,8 @@ en:
           logo: "DMS"
           home: "Home"
           companies: "Companies"
+          offices: "Offices"
+          my_devices: "My devices"
       top:
         topbar:
           logout: "Log Out"

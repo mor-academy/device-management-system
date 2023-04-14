@@ -6,6 +6,8 @@ vi:
           logo: "DMS"
           home: "Trang chủ"
           companies: "Công ty"
+          offices: "Văn phòng"
+          my_devices: "Thiết bị của tôi"
       top:
         topbar:
           logout: "Đăng xuất"

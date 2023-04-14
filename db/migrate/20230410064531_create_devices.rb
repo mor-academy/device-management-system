@@ -8,7 +8,7 @@ class CreateDevices < ActiveRecord::Migration[7.0]
       t.text :source, null: false
       t.integer :status, null: false, default: 0
       t.text :images
-      t.string :brand, null: false
+
       t.timestamps
     end
   end

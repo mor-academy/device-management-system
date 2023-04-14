@@ -1,8 +1,8 @@
 en:
   activerecord:
     attributes:
-      users:
-        status:
+      user:
+        statuses:
           employee: "Working"
           quit: "Has Retired"
         roles:
@@ -11,24 +11,24 @@ en:
           bod: "Board Of Directors"
           device_manager: "Device Manager"
           direct_manager: "Direct Management"
-      brands:
-        status:
+      brand:
+        statuses:
           enabled: "Active"
           disabled: "Stop working"
-      user_devices:
-        status:
-          ready: "Ready for lend"
+      user_device:
+        statuses:
+          ready: "Ready"
           fixing: "Under repair"
           using: "Being used"
-      user_confirm_devices:
-        admin_device_status:
+      user_confirm_device:
+        admin_device_statuses:
           good: "Good"
           not_good: "Bad"
-        staff_device_status:
+        staff_device_statuses:
           good: "Good"
           not_good: "Bad"
       device:
-        status:
-          ready: "Ready for lend"
+        statuses:
+          ready: "Ready"
           fixing: "Under repair"
           using: "Being used"

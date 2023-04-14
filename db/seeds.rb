@@ -36,15 +36,19 @@ number_of_records.times do |_|
   user = office.users.build user_params
   user.save
   p user.inspect
-end
 
-number_of_records.times do |_|
-  user_params = {
-    email: Faker::Internet.email(domain: "gmail.com"),
-    password: "123456abcd",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name
+  device_params = {
+    name: Faker::Device.model_name,
+    code: Faker::Code.asin,
+    source: Faker::Device.serial,
+    office_id: office.id
   }
-  user = User.create user_params
-  p user.inspect
+  device = Device.create! device_params
+  user = User.last
+  user_devices_params = {
+    input_date: Faker::Date.between(from: "2020-03-20", to: Date.today),
+    output_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
+    user_id: user.id
+  }
+  device.user_devices.create! user_devices_params
 end

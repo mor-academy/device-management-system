@@ -1,0 +1,10 @@
+vi:
+  user_devices:
+    index:
+      my_devices: "Thiết bị của tôi"
+      code: "Code"
+      name: "Tên"
+      status: "Trạng thái"
+      input_date: "Ngày nhận"
+      output_date: "Ngày trả"
+      action: "Thao tác"

@@ -1,0 +1,10 @@
+en:
+  user_devices:
+    index:
+      my_devices: "My devices"
+      code: "Code"
+      name: "Name"
+      status: "Status"
+      input_date: "Input date"
+      output_date: "Output date"
+      action: "Action"

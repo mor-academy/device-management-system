@@ -1,0 +1,10 @@
+en:
+  devices:
+    show:
+      code: "Code: "
+      price: "Price: "
+      brand: "Brand: "
+      description: "Description"
+      usage_history: "Usage history"
+      related_devices: "Related devices"
+      repair_history: "Repair history"
