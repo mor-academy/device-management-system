@@ -1,26 +1,26 @@
 <%= form_with model: @office, url: update_users_company_office_path, data: {turbo: false} do |f| %>
   <div class="grid grid-cols-4 gap-4 items-center">
     <div class="col-span-3">
-      <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+      <h2 class="my-6 text-2xl font-semibold text-gray-700">
         <%= t ".list_users_without_office" %>
       </h2>
     </div>
     <div>
-      <%= f.submit t(".add_users_to_office"), class: "float-right rounded-lg pointer-events-auto bg-indigo-600 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-indigo-500" %>
+      <%= f.submit t ".add_users_to_office", class: "float-right rounded-lg pointer-events-auto bg-indigo-600 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-indigo-500" %>
     </div>
   </div>
   <div class="w-full overflow-hidden rounded-lg shadow-xs border">
     <div class="w-full overflow-x-auto">
       <table class="w-full whitespace-no-wrap">
         <thead>
-          <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+          <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50">
             <th class="px-4 py-3"><%= t ".user_info" %></th>
             <th class="px-4 py-3"><%= t ".status" %></th>
           </tr>
         </thead>
-        <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+        <tbody class="bg-white divide-y">
           <% @users&.each do |user| %>
-            <tr class="text-gray-700 dark:text-gray-400">
+            <tr class="text-gray-700">
               <td class="px-4 py-3">
                 <div class="flex items-center text-sm">
                   <div class="mr-3">
@@ -32,14 +32,14 @@
                   </div>
                   <div>
                     <p class="font-semibold"><%= user.fullname %></p>
-                    <p class="text-xs text-gray-600 dark:text-gray-400">
+                    <p class="text-xs text-gray-600">
                       <%= user.email %>
                     </p>
                   </div>
                 </div>
               </td>
               <td class="px-4 py-3 text-xs">
-                <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full">
                   <%= user.status %>
                 </span>
               </td>

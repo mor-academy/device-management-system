@@ -1,4 +1,4 @@
-<tr class="text-gray-700 dark:text-gray-400">
+<tr class="text-gray-700">
   <td class="px-4 py-3">
     <div class="flex items-center text-sm">
       <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
@@ -8,7 +8,7 @@
       </div>
       <div>
         <p class="font-semibold"><%= company.office_info&.name %></p>
-        <p class="text-xs text-gray-600 dark:text-gray-400">
+        <p class="text-xs text-gray-600">
           <%= company.office_info&.email %>
         </p>
       </div>
@@ -16,9 +16,17 @@
   </td>
   <td class="px-4 py-3 text-sm"><%= company.office_info&.address %></td>
   <td class="px-4 py-3 text-sm"><%= company.office_info&.phone_number %></td>
-  <td class="px-4 py-3 text-sm"><%= company.website %></td>
   <td class="px-4 py-3 text-sm">
-    <%= link_to t("shared.edit"), edit_company_path(company) %>
-    <%= link_to t("shared.detail"), company_path(company) %>
+    <a class="hover:text-indigo-600" href="<%= company.website %>" target="blank"><%= company.website %></a>
+  </td>
+  <td class="px-4 py-3 text-sm w-36">
+    <%= link_to edit_company_path(company), class: "flex items-center gap-[6px] mb-1 hover:text-indigo-600" do %>
+      <i class="fa-regular fa-pen-to-square"></i>
+      <%= t "shared.edit" %>
+    <% end %>
+    <%= link_to company_path(company), class: "flex items-center gap-1 hover:text-indigo-600" do %>
+      <i class="fa-regular fa-eye"></i>
+      <%= t "shared.detail" %>
+    <% end %>
   </td>
 </tr>
