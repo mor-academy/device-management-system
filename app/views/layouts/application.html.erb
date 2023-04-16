@@ -12,12 +12,12 @@
         </header>
         <main class="h-full overflow-y-auto ">
           <div class="py-1 my-1 mx-7 grid">
-            <%= render "layouts/flash" %>
             <%= yield %>
           </div>
         </main>
       </div>
     </div>
+    <%= render "layouts/flash" %>
   </body>
   <%= render "layouts/javacripts" %>
 </html>
