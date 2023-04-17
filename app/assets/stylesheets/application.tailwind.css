@@ -11,3 +11,21 @@
 }
 
 */
+
+@keyframes back-out-up {
+  0%, 60% {
+    opacity: 1
+  }
+
+  80% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: .7
+  }
+
+  to {
+    -webkit-transform: translateY(-500px);
+    transform: translateY(-500px);
+    opacity: .7
+  }
+}
