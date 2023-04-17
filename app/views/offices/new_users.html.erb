@@ -1,12 +1,12 @@
-<%= form_with model: @office, url: update_users_company_office_path, data: {turbo: false} do |f| %>
+<%= form_with model: @office, url: add_users_company_office_path, data: {turbo: false} do |f| %>
   <div class="grid grid-cols-4 gap-4 items-center">
     <div class="col-span-3">
       <h2 class="my-6 text-2xl font-semibold text-gray-700">
         <%= t ".list_users_without_office" %>
       </h2>
     </div>
-    <div>
-      <%= f.submit t ".add_users_to_office", class: "float-right rounded-lg pointer-events-auto bg-indigo-600 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-indigo-500" %>
+    <div class="w-min cursor-pointer rounded-lg pointer-events-auto bg-indigo-600 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-indigo-500">
+      <%= f.submit t ".add_users_to_office" %>
     </div>
   </div>
   <div class="w-full overflow-hidden rounded-lg shadow-xs border">

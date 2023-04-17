@@ -23,7 +23,17 @@
       </div>
     </div>
     <div class="bg-white p-5 shadow rounded-md rounded-bl-2xl">
-      <h2 class="text-xl font-medium mb-2"><%= t ".usage_history" %><h2>
+      <div class="grid grid-cols-4 items-center">
+        <div class="col-span-3">
+          <h2 class="text-xl font-medium mb-2"><%= t ".usage_history" %><h2>
+        </div>
+        <div>
+          <%= link_to "", class: "float-right pointer-events-auto text-indigo-700" do %>
+            <i class="fa-solid fa-plus mr-1 text-sm"></i>
+            <span class="font-bold text-sm"><%= t ".add_new" %></span>
+          <% end %>
+        </div>
+      </div>
       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dd class="mt-1 text-sm text-gray-900 sm:col-span-3 sm:mt-0">
           <ul role="list">
@@ -64,7 +74,17 @@
   </div>
   <div class="grid lg:col-span-4 gap-7">
     <div class="bg-white p-5 shadow rounded-md rounded-tr-2xl">
-      <h2 class="text-xl font-medium mb-2"><%= t ".related_devices" %><h2>
+      <div class="grid grid-cols-4 items-center">
+        <div class="col-span-3">
+          <h2 class="text-xl font-medium mb-2"><%= t ".related_devices" %><h2>
+        </div>
+        <div>
+          <%= link_to "", class: "float-right pointer-events-auto text-indigo-700" do %>
+            <i class="fa-solid fa-plus mr-1 text-sm"></i>
+            <span class="font-bold text-sm"><%= t ".add_new" %></span>
+          <% end %>
+        </div>
+      </div>
       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dd class="mt-1 text-sm text-gray-900 sm:col-span-3 sm:mt-0">
           <ul role="list">
@@ -87,7 +107,17 @@
       </div>
     </div>
     <div class="bg-white p-5 shadow rounded-md rounded-br-2xl">  
-      <h2 class="text-xl font-medium mb-2"><%= t ".repair_history" %><h2>
+      <div class="grid grid-cols-4 items-center">
+        <div class="col-span-3">
+          <h2 class="text-xl font-medium mb-2"><%= t ".repair_history" %><h2>
+        </div>
+        <div>
+          <%= link_to "", class: "float-right pointer-events-auto text-indigo-700" do %>
+            <i class="fa-solid fa-plus mr-1 text-sm"></i>
+            <span class="font-bold text-sm"><%= t ".add_new" %></span>
+          <% end %>
+        </div>
+      </div>
       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dd class="mt-1 text-sm text-gray-900 sm:col-span-3 sm:mt-0">
           <ul role="list">

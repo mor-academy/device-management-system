@@ -18,7 +18,7 @@ en:
     update:
       success: "Edited office successfully"
 
-    update_users:
+    add_users:
       success: "Successfully added employees to the office"
 
     index:

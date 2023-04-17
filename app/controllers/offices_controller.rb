@@ -1,6 +1,7 @@
 class OfficesController < ApplicationController
   before_action :set_company
-  before_action :set_office, only: %i(show edit update update_users new_users)
+  before_action :set_office, only: %i(show edit update add_users new_users)
+  before_action :check_user_ids_present, only: :add_users
 
   def index
     @offices = @company.offices.recent
@@ -42,17 +43,22 @@ class OfficesController < ApplicationController
     @users = User.without_office.recent
   end
 
-  def update_users
-    if User.by_ids(params[:user_ids]).update(office_id: @office.id)
+  def add_users
+    users_need_add = User.by_ids params[:user_ids]
+    if users_need_add.update office_id: @office.id
       redirect_to company_office_path(company_id: @company.id, id: @office.id), notice: t(".success")
     else
       @users = User.without_office.recent
-      flash.now[:alert] = t("shared.processing_failed")
+      flash.now[:alert] = t "shared.processing_failed"
       render :new_users
     end
   end
 
   private
+
+  def office_params
+    params.require(:office).permit Office::ATTR_PARAMS
+  end
 
   def set_company
     return if @company = Company.find_by(id: params[:company_id])
@@ -66,7 +72,10 @@ class OfficesController < ApplicationController
     redirect_to company_offices_path, alert: t("shared.office_does_not_exist")
   end
 
-  def office_params
-    params.require(:office).permit Office::ATTR_PARAMS
+  def check_user_ids_present
+    return if params[:user_ids].present?
+
+    flash[:notice] = t "shared.processing_failed"
+    redirect_to new_users_company_office_path(company_id: @company.id, id: @office.id)
   end
 end

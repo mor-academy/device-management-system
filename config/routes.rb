@@ -13,7 +13,8 @@ Rails.application.routes.draw do
       resources :offices do 
         member do
           get :new_users
-          patch :update_users
+
+          patch :add_users
         end
       end
     end

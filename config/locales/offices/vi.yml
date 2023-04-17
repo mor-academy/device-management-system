@@ -18,7 +18,7 @@ vi:
     update:
       success: "Đã chỉnh sửa văn phòng thành công"
 
-    update_users:
+    add_users:
       success: "Thêm thành công nhân viên vào văn phòng"
 
     index:
