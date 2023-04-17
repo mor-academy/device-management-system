@@ -2,6 +2,7 @@ number_of_records = 20
 number_of_records.times do |_|
   company_params = {
     name: Faker::Company.name,
+    address: Faker::Address.full_address,
     information: Faker::Company.industry,
     email: Faker::Internet.email(domain: "gmail.com"),
     phone_number: Faker::Company.russian_tax_number
@@ -17,6 +18,7 @@ number_of_records.times do |_|
   office_params = {
     name: Faker::Company.name,
     address: Faker::Address.full_address,
+    information: Faker::Company.industry,
     email: Faker::Internet.email(domain: "gmail.com"),
     phone_number: Faker::Company.russian_tax_number
   }
@@ -41,14 +43,18 @@ number_of_records.times do |_|
     name: Faker::Device.model_name,
     code: Faker::Code.asin,
     source: Faker::Device.serial,
+    description: Faker::Hacker.say_something_smart,
     office_id: office.id
   }
   device = Device.create! device_params
+  p device.inspect
+
   user = User.last
   user_devices_params = {
     input_date: Faker::Date.between(from: "2020-03-20", to: Date.today),
     output_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
     user_id: user.id
   }
-  device.user_devices.create! user_devices_params
+  user_devices = device.user_devices.create! user_devices_params
+  p user_devices.inspect
 end
