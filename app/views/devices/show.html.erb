@@ -28,7 +28,7 @@
           <h2 class="text-xl font-medium mb-2"><%= t ".usage_history" %><h2>
         </div>
         <div>
-          <%= link_to "", class: "float-right pointer-events-auto text-indigo-700" do %>
+          <%= link_to new_user_device_path(device_id: @device.id), data: {turbo_frame: "new_user_device"}, "data-modal-target": "defaultModal", "data-modal-toggle": "defaultModal", class: "float-right pointer-events-auto text-indigo-700" do %>
             <i class="fa-solid fa-plus mr-1 text-sm"></i>
             <span class="font-bold text-sm"><%= t ".add_new" %></span>
           <% end %>
@@ -36,38 +36,13 @@
       </div>
       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dd class="mt-1 text-sm text-gray-900 sm:col-span-3 sm:mt-0">
-          <ul role="list">
-            <% @device.user_devices.each do |user_device| %>
-              <li class="flex items-center justify-between py-4 pl-3 pr-4 my-3 text-sm shadow">
-                <div class="flex items-center text-sm">
-                  <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                    <%= image_tag avatar_url(user_device.user), class: "object-cover w-full h-full rounded-full", loading: "lazy", alt: "" %>
-                    <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
-                  </div>
-                  <div class="w-40">
-                    <p class="font-semibold"><%= user_device.user.fullname %></p>
-                    <p class="text-xs text-gray-600">
-                      <%= user_device.user.email %>
-                    </p>
-                  </div>
-                </div>
-                <div class="flex items-center gap-4 text-gray-500">
-                  <div>
-                    <i class="fa-regular fa-calendar-plus w-4 ml-[-0.7px]"></i>
-                    <%= convert_date_ymd user_device&.input_date %>
-                  </div>
-                  /
-                  <div>
-                    <i class="fa-regular fa-calendar-check w-4"></i>
-                    <%= convert_date_ymd user_device&.output_date %>
-                  </div>
-                </div>
-                <span class="px-2 py-2 font-semibold text-indigo-600 rounded-full w-36 text-right">
-                  <%= UserDevice.human_enum_name :status, user_device&.status %>
-                </span>
-              </li>
-            <% end %>
-          </ul>
+          <%= turbo_frame_tag "user_devices" do %>
+            <ul role="list">
+              <% @device.user_devices.each do |user_device| %>
+                <%= render "user_devices/new_user_device", user_device: user_device  %>
+              <% end %>
+            </ul>
+          <% end %>
         </dd>
       </div>
     </div>

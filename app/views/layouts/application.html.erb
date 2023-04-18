@@ -17,7 +17,12 @@
         </main>
       </div>
     </div>
-    <%= render "layouts/flash" %>
+    <div id="flash" class="fixed z-[999] top-[10%] left-[50%] translate-x-[-50%] flex flex-col items-center gap-2">
+      <%= render "layouts/flash" %>
+    </div>
+    <div id="modal">
+      <%= render "layouts/modals/big" %>
+    </div>
   </body>
   <%= render "layouts/javacripts" %>
 </html>

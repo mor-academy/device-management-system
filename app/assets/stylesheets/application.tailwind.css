@@ -4,7 +4,6 @@
 
 @layer components {
   @keyframes back-out-up {
-
     0%,
     60% {
       @apply opacity-100;

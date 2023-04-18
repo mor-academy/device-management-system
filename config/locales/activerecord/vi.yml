@@ -17,9 +17,9 @@ vi:
           disabled: "Dừng hoạt động"
       user_device:
         statuses:
-          ready: "Sẵn sàng"
-          fixing: "Đang sửa chữa"
+          used: "Đã sử dụng"
           using: "Đang sử dụng"
+          fixing: "Đang sửa chữa"
       user_confirm_device:
         admin_device_statuses:
           good: "Sử dụng tốt"

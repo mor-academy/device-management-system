@@ -17,9 +17,9 @@ en:
           disabled: "Stop working"
       user_device:
         statuses:
-          ready: "Ready"
-          fixing: "Under repair"
+          used: "Used"
           using: "Being used"
+          fixing: "Under repair"
       user_confirm_device:
         admin_device_statuses:
           good: "Good"
