@@ -5,12 +5,12 @@ class OfficesController < ApplicationController
 
   def index
     @offices = @company.offices.recent
-    @pagy, @offices = pagy @offices, items: 10
+    @pagy, @offices = pagy @offices, items: Settings.pagy.config.page.default
   end
 
   def show
     @users = @office.users.recent
-    @pagy, @users = pagy @users, items: 10
+    @pagy, @users = pagy @users, items: Settings.pagy.config.page.default
   end
 
   def new

@@ -1,0 +1,9 @@
+<div data-app-target="modalCustom" data-controller="modal-custom" class="modal-custom hidden animate-[modal-animation_0.5s_ease-in] z-50">
+  <div data-action="click->app#closeModal" class="bg-black opacity-30 fixed w-screen h-screen top-0 right-0"></div>
+  <div class="bg-white min-w-[50%] fixed top-[20%] left-[50%] translate-x-[-50%] z-[999] shadow-xl rounded-lg">
+    <div data-action="click->app#closeModal" class="cursor-pointer float-right px-4 py-3 hover:bg-gray-100 rounded-lg"><i class="text-lg fa-solid fa-xmark text-gray-600"></i></div>
+    <div class="px-3 py-3">
+      <%= turbo_frame_tag :global_modal %>
+    </div>
+  </div>
+</div>

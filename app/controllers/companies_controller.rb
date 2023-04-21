@@ -3,7 +3,7 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.recent
-    @pagy, @companies = pagy @companies, items: 10
+    @pagy, @companies = pagy @companies, items: Settings.pagy.config.page.default
   end
 
   def show; end

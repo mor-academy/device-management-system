@@ -28,7 +28,7 @@
           <h2 class="text-xl font-medium mb-2"><%= t ".usage_history" %><h2>
         </div>
         <div>
-          <%= link_to new_user_device_path(device_id: @device.id), data: {turbo_frame: "new_user_device"}, "data-modal-target": "defaultModal", "data-modal-toggle": "defaultModal", class: "float-right pointer-events-auto text-indigo-700" do %>
+          <%= link_to new_user_device_path(device_id: @device.id), data: {turbo_frame: :global_modal, action: "click->app#openModal"}, class: "float-right pointer-events-auto text-indigo-700" do %>
             <i class="fa-solid fa-plus mr-1 text-sm"></i>
             <span class="font-bold text-sm"><%= t ".add_new" %></span>
           <% end %>
@@ -54,7 +54,7 @@
           <h2 class="text-xl font-medium mb-2"><%= t ".related_devices" %><h2>
         </div>
         <div>
-          <%= link_to "", class: "float-right pointer-events-auto text-indigo-700" do %>
+          <%= link_to new_sub_devices_device_path(id: @device.id), data: {turbo_frame: :global_modal, action: "click->app#openModal"}, class: "float-right pointer-events-auto text-indigo-700" do %>
             <i class="fa-solid fa-plus mr-1 text-sm"></i>
             <span class="font-bold text-sm"><%= t ".add_new" %></span>
           <% end %>
@@ -62,22 +62,13 @@
       </div>
       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dd class="mt-1 text-sm text-gray-900 sm:col-span-3 sm:mt-0">
-          <ul role="list">
-            <% @device.sub_devices.each do |sub_device| %>
-              <li class="flex items-center justify-between py-3 pl-3 pr-4 my-2 text-sm shadow">
-                <div class="flex w-0 flex-1 items-center">
-                  <span class="ml-2 w-0 flex-1 truncate">
-                    <%= link_to sub_device.name, device_path(sub_device) %>
-                  </span>
-                </div>
-                <div class="ml-4 flex-shrink-0">
-                  <div class="font-medium text-indigo-600 hover:text-indigo-500">
-                    <%= Device.human_enum_name :status, sub_device.status %>
-                  </div>
-                </div>
-              </li>
-            <% end %>
-          </ul>
+          <%= turbo_frame_tag "sub_devices" do %>
+            <ul role="list">
+              <% @device.sub_devices.order(updated_at: :desc).each do |sub_device| %>
+                <%= render "devices/sub_devices/item", sub_device: sub_device %>
+              <% end %>
+            </ul>
+          <% end %>
         </dd>
       </div>
     </div>
@@ -115,3 +106,4 @@
     </div>
   </div>
 </div>
+<%= render "layouts/modals/modal_medium" %>

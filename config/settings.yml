@@ -1,0 +1,4 @@
+pagy:
+  config:
+    page:
+      default: 10

@@ -9,3 +9,14 @@ en:
       related_devices: "Related devices"
       repair_history: "Repair history"
       add_new_history: "Add new history"
+      add_new_related_device: "Add new related devices"
+      add_new: "Add new"
+
+    add_sub_devices:
+      success: "The related devices have been successfully added"
+      failed: "Please select the devices you want to add"
+
+    sub_devices:
+      form_new:
+        add_related_devices: "Add related devices"
+        no_related_devices: "No related devices"

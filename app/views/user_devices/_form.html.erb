@@ -1,8 +1,8 @@
-<%= form_with model: user_device, class: "bg-white p-10 rounded-xl shadow-md" do |f| %>
+<%= form_with model: user_device, class: "bg-white p-10" do |f| %>
   <div class="space-y-6">
     <div class="border-b border-gray-900/10 pb-6">
-      <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
-        <%= f.hidden_field :device_id  %>
+      <div class="grid gap-x-6 gap-y-8 sm:grid-cols-12">
+        <%= f.hidden_field :device_id %>
         <div class="sm:col-span-6">
           <%= f.label :input_date, class: "block text-sm font-medium leading-6 text-gray-900" %>
           <div class="mt-2">

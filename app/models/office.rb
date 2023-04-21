@@ -6,6 +6,7 @@ class Office < ApplicationRecord
   has_one :office_info, as: :info, dependent: :destroy
 
   has_many :users, dependent: :destroy
+  has_many :user_devices, through: :users
   has_many :devices, dependent: :destroy
   has_many :office_infos, as: :info, dependent: :destroy
 
