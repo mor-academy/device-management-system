@@ -78,7 +78,7 @@
           <h2 class="text-xl font-medium mb-2"><%= t ".repair_history" %><h2>
         </div>
         <div>
-          <%= link_to "", class: "float-right pointer-events-auto text-indigo-700" do %>
+          <%= link_to new_device_device_history_path(@device.id), data: {turbo_frame: :global_modal, action: "click->app#openModal"}, class: "float-right pointer-events-auto text-indigo-700" do %>
             <i class="fa-solid fa-plus mr-1 text-sm"></i>
             <span class="font-bold text-sm"><%= t ".add_new" %></span>
           <% end %>
@@ -86,21 +86,11 @@
       </div>
       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dd class="mt-1 text-sm text-gray-900 sm:col-span-3 sm:mt-0">
-          <ul role="list">
-            <% @device.device_histories.each do |device_history| %>
-              <li class="flex items-center justify-around py-3 pl-3 pr-4 my-2 text-sm shadow">
-                <div>
-                  <i class="fa-regular fa-calendar-plus"></i>
-                  <%= convert_date_ymd device_history.input_date %>
-                </div> 
-                /
-                <div>
-                  <i class="fa-regular fa-calendar-check"></i>
-                  <%= convert_date_ymd device_history.output_date %>
-                </div>
-              </li>
-            <% end %>
-          </ul>
+          <%= turbo_frame_tag :device_histories do %>
+            <ul role="list">
+              <%= render @device.device_histories.recent %>
+            </ul>
+          <% end %>
         </dd>
       </div>
     </div>

@@ -8,3 +8,6 @@ en:
       input_date: "Input date"
       output_date: "Output date"
       action: "Action"
+    
+    create:
+      success: "Added successfully usage history"

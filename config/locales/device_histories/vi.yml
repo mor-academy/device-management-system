@@ -1,0 +1,4 @@
+vi:
+  device_histories:
+    create:
+      success: "Thêm lịch sử thiết bị thành công"

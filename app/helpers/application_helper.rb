@@ -10,6 +10,10 @@ module ApplicationHelper
   end
 
   def render_turbo_stream_flash_messages
-    turbo_stream.append "flash", partial: "layouts/flash"
+    turbo_stream.append :flash, partial: "layouts/flash"
+  end
+
+  def render_turbo_stream_close_modal
+    turbo_stream.prepend :global_modal, partial: "layouts/modals/close_modal"
   end
 end

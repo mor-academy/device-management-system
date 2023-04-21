@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     end
     resources :user_devices
     resources :devices do
+      resources :device_histories
+
       member do
         get :new_sub_devices
 

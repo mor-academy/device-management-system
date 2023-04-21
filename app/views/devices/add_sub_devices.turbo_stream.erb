@@ -1,5 +1,5 @@
 <% @sub_devices.each do |sub_device| %>
   <%= turbo_stream.prepend "sub_devices", partial: "devices/sub_devices/item", locals: {sub_device: sub_device} %>
 <% end %>
-<%= turbo_stream.prepend :global_modal, partial: "layouts/modals/remove_modal" %>
+<%= render_turbo_stream_close_modal %>
 <%= render_turbo_stream_flash_messages %>

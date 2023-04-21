@@ -1,0 +1,4 @@
+en:
+  device_histories:
+    create:
+      success: "Added successfully device history"
