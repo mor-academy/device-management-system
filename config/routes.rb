@@ -19,7 +19,13 @@ Rails.application.routes.draw do
       end
     end
     resources :user_devices
-    resources :devices
+    resources :devices do
+      member do
+        get :new_sub_devices
+
+        patch :add_sub_devices
+      end
+    end
   end
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?

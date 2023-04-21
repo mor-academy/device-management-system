@@ -1,5 +1,5 @@
 <% flash.each do |flash_type, message| %>
-  <div class="bg-neutral-800 text-gray-100 px-6 py-2 rounded-full flex items-center gap-1 animate-[back-out-up_5s_ease-in-out]" data-controller="removals" data-action="animationend->removals#remove">
+  <div class="bg-neutral-800 text-gray-100 px-6 py-2 rounded-full flex items-center gap-1 animate-[back-out-up_5s_ease-in-out]" data-controller="flash--removals" data-action="animationend->flash--removals#remove">
     <i class="fa-solid fa-circle-exclamation text-[#e4ac11]"></i>
     <%= message %>
   </div>

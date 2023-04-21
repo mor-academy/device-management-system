@@ -12,4 +12,6 @@ class Device < ApplicationRecord
   has_many :requests, dependent: :destroy
 
   enum status: {ready: 0, fixing: 1, using: 2}
+
+  scope :without_sub_device, ->{where device_id: nil}
 end

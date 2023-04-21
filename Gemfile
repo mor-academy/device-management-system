@@ -54,6 +54,9 @@ gem "image_processing", "~> 1.2"
 # https://github.com/CanCanCommunity/cancancan
 gem "cancancan"
 
+# https://github.com/rubyconfig/config
+gem "config"
+
 # https://github.com/heartcombo/devise
 gem "devise"
 

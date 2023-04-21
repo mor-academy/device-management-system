@@ -9,3 +9,13 @@ vi:
       related_devices: "Thiết bị liên quan"
       repair_history: "Lịch sử sửa chữa"
       add_new_history: "Thêm lịch sử mới"
+      add_new_related_device: "Thêm các thiết bị liên quan mới"
+      add_new: "Thêm mới"
+
+    add_sub_devices:
+      success: "Các thiết bị liên quan đã được thêm thành công"
+      failed: "Vui lòng chọn các thiết bị muốn thêm vào"
+
+    new_sub_devices:
+      add_related_devices: "Thêm thiết bị liên quan"
+      no_related_devices: "Không có thiết bị liên quan"

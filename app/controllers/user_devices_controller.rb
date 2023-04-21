@@ -3,7 +3,7 @@ class UserDevicesController < ApplicationController
 
   def index
     @user_devices = current_user.user_devices.recent
-    @pagy, @user_devices = pagy @user_devices, items: 10
+    @pagy, @user_devices = pagy @user_devices, items: Settings.pagy.config.page.default
   end
 
   def new
@@ -33,7 +33,7 @@ class UserDevicesController < ApplicationController
   end
 
   def users_except_using
-    users = current_user.office.users
-    @users_except_using = users.left_joins(:user_devices).where.not(user_devices: {status: :using}).uniq
+    user_using = current_user.office.user_devices.using
+    @users_except_using = current_user.office.users.where.not(id: user_using.select(:user_id))
   end
 end

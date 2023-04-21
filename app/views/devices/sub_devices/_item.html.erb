@@ -1,0 +1,14 @@
+<%= turbo_frame_tag sub_device do %>
+  <%= link_to device_path(sub_device), data: {turbo_frame: "_top"} do %>
+    <li class="flex items-center justify-between py-3 pl-3 pr-4 my-2 text-sm shadow">
+      <div class="flex w-0 flex-1 items-center">
+        <span class="ml-2 w-0 flex-1 truncate"><%= sub_device&.name %></span>
+      </div>
+      <div class="ml-4 flex-shrink-0">
+        <div class="font-medium text-indigo-600 hover:text-indigo-500">
+          <%= Device.human_enum_name :status, sub_device&.status %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+<% end %>
