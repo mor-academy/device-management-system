@@ -8,3 +8,6 @@ vi:
       input_date: "Ngày nhận"
       output_date: "Ngày trả"
       action: "Thao tác"
+
+    create:
+      success: "Thêm lịch sử sử dụng thành công"

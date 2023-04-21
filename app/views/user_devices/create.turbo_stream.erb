@@ -1,3 +1,3 @@
-<%= turbo_stream.prepend "user_devices", partial: "user_devices/new_user_device", locals: {user_device: @user_device} %>
-<%= turbo_stream.prepend :global_modal, partial: "layouts/modals/remove_modal" %>
+<%= turbo_stream.prepend :user_devices, partial: "user_devices/new_user_device", locals: {user_device: @user_device} %>
+<%= render_turbo_stream_close_modal %>
 <%= render_turbo_stream_flash_messages %>
