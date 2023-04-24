@@ -1,3 +1,7 @@
+<% content_for :search_box do %>
+  <%= render "layouts/shared/top/search_box", query: @query, url: user_devices_path, field: :device_name_or_device_code_cont, placeholder: t(".search_by") %>
+<% end %>
+
 <div class="grid grid-cols-4 gap-4 items-center">
   <div class="col-span-3">
     <h2 class="my-6 text-2xl font-semibold text-gray-700">
@@ -9,13 +13,13 @@
   <div class="w-full overflow-x-auto">
     <table class="w-full whitespace-no-wrap">
       <thead>
-        <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50">
-          <th class="px-4 py-3"><%= t ".id" %></th>
-          <th class="px-4 py-3"><%= t ".code" %></th>
-          <th class="px-4 py-3"><%= t ".name" %></th>
-          <th class="px-4 py-3"><%= t ".status" %></th>
-          <th class="px-4 py-3"><%= t ".input_date" %></th>
-          <th class="px-4 py-3"><%= t ".output_date" %></th>
+        <tr class="text-xs font-semibold tracking-wide text-left text-gray-800 uppercase border-b bg-gray-50">
+          <th class="px-4 py-3"><%= sort_link @query, :id, t(".id") %></th>
+          <th class="px-4 py-3"><%= sort_link @query, :device_code, t(".code") %></th>
+          <th class="px-4 py-3"><%= sort_link @query, :device_name, t(".name") %></th>
+          <th class="px-4 py-3"><%= sort_link @query, :status, t(".status") %></th>
+          <th class="px-4 py-3"><%= sort_link @query, :input_date, t(".input_date") %></th>
+          <th class="px-4 py-3"><%= sort_link @query, :output_date, t(".output_date") %></th>
           <th class="px-4 py-3"><%= t ".action" %></th>
         </tr>
       </thead>

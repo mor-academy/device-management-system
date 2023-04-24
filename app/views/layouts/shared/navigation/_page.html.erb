@@ -4,8 +4,8 @@
     </a>
     <ul class="mt-6">
       <%= render "layouts/shared/navigation/item", navigation_path: root_path, navigation_active: is_active_navigation?(:static_pages), navigation_icon: "fa-solid fa-house", navigation_content: t(".home") %>
-      <%= render "layouts/shared/navigation/item", navigation_path: companies_path, navigation_active: is_active_navigation?(:companies), navigation_icon: "fa-solid fa-code-branch", navigation_content: t(".companies") %>
-      <%= render "layouts/shared/navigation/item", navigation_path: company_offices_path(company_id: current_user.office.company_id), navigation_active: is_active_navigation?(:offices), navigation_icon: "fa-solid fa-code-branch", navigation_content: t(".offices") if current_user.office.present? %>
-      <%= render "layouts/shared/navigation/item", navigation_path: user_devices_path, navigation_active: is_active_navigation?(:user_devices), navigation_icon: "fa-solid fa-code-branch", navigation_content: t(".my_devices") if current_user.present? %>
+      <%= render "layouts/shared/navigation/item", navigation_path: companies_path, navigation_active: is_active_navigation?(:companies), navigation_icon: "fa-solid fa-building", navigation_content: t(".companies") %>
+      <%= render "layouts/shared/navigation/item", navigation_path: company_offices_path(company_id: current_user.office.company_id), navigation_active: is_active_navigation?(:offices), navigation_icon: "fa-regular fa-building", navigation_content: t(".offices") if current_user.office.present? %>
+      <%= render "layouts/shared/navigation/item", navigation_path: user_devices_path, navigation_active: is_active_navigation?(:user_devices), navigation_icon: "fa-solid fa-hard-drive", navigation_content: t(".my_devices") if current_user.present? %>
     </ul>
 </div>

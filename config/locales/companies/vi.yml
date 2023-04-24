@@ -27,6 +27,7 @@ vi:
       phone_number: "Số điện thoại"
       website: "Trang web"
       action: "Hành động"
+      search_by: "Tìm kiếm theo tên công ty, địa chỉ hoặc số điện thoại"
 
     new:
       new_company: "Thêm công ty mới"

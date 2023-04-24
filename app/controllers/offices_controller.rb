@@ -4,8 +4,8 @@ class OfficesController < ApplicationController
   before_action :check_user_ids_present, only: :add_users
 
   def index
-    @offices = @company.offices.recent
-    @pagy, @offices = pagy @offices, items: Settings.pagy.config.page.default
+    @query = @company.offices.ransack params[:query]
+    @pagy, @offices = pagy @query.result(distinct: true).recent, items: Settings.pagy.config.page.default
   end
 
   def show

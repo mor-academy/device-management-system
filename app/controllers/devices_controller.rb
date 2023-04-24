@@ -5,15 +5,19 @@ class DevicesController < ApplicationController
   def show; end
 
   def new_sub_devices
-    @sub_devices = current_user.office.devices.without_sub_device.recent
+    @sub_devices = sub_devices.recent
   end
 
   def add_sub_devices
-    @sub_devices = current_user.office.devices.without_sub_device.by_ids params[:device_ids]
+    @sub_devices = sub_devices.by_ids params[:device_ids]
     @sub_devices.update device_id: @device.id
   end
 
   private
+
+  def sub_devices
+    current_user.office.devices.without_sub_device.without_current_device @device.id
+  end
 
   def set_device
     return if @device = current_user.office.devices.find_by(id: params[:id])
