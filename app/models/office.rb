@@ -13,4 +13,14 @@ class Office < ApplicationRecord
   ATTR_PARAMS = [:id, {office_infos_attributes: [:id, :name, :information, :address, :email, :phone_number]}].freeze
 
   accepts_nested_attributes_for :office_infos
+
+  class << self
+    def ransackable_attributes _auth_object = nil
+      %w(id)
+    end
+
+    def ransackable_associations _auth_object = nil
+      %w(office_info)
+    end
+  end
 end

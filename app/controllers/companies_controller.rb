@@ -2,8 +2,8 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: %i(show edit update)
 
   def index
-    @companies = Company.recent
-    @pagy, @companies = pagy @companies, items: Settings.pagy.config.page.default
+    @query = Company.ransack params[:query]
+    @pagy, @companies = pagy @query.result(distinct: true).recent, items: Settings.pagy.config.page.default
   end
 
   def show; end

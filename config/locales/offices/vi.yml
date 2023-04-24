@@ -29,6 +29,7 @@ vi:
       phone_number: "Số điện thoại"
       website: "Trang web"
       action: "Hành động"
+      search_by: "Tìm kiếm theo tên văn phòng, địa chỉ hoặc số điện thoại"
 
     show:
       list_users: Danh sách nhân viên

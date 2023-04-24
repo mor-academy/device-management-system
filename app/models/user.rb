@@ -16,6 +16,7 @@ class User < ApplicationRecord
   enum role: {staff: 0, system_admin: 1, bod: 2, device_manager: 3, direct_manager: 4}
 
   scope :without_office, ->{where office_id: nil}
+  scope :without_users, ->(ids){where.not id: ids}
 
   def fullname
     "#{last_name} #{first_name}"

@@ -29,7 +29,8 @@ en:
       phone_number: "Phone number"
       website: "Website"
       action: "Action"
-   
+      search_by: "Search by office name, address or phone number"
+
     show:
       list_users: List Users
       add_users: Add users
