@@ -4,3 +4,11 @@ vi:
       subject: "[DMS] Thông báo thay đổi văn phòng"
       office_change:
         content: "Chúc mừng bạn đã trở thành thành viên của công ty %{company_name}, văn phòng %{office_name} vào ngày %{updated_at}"
+
+      provide_password:
+        subject: "[DMS] Cung cấp mật khẩu"
+        content: "Mật khẩu của bạn là %{password}"
+
+    sessions:
+      new:
+        title: "Đăng nhập"
