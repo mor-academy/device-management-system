@@ -1,7 +1,0 @@
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= form_with url: omniauth_authorize_path(resource_name, provider), method: :post, data: {turbo: "false"} do |f| %>
-      <%= f.submit t(".login_with_google"), class: "text-white w-25 bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-between mr-2 mb-2" %>
-    <% end %> 
-  <% end %>
-<% end %>

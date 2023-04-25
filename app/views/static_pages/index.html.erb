@@ -1,12 +1,3 @@
 <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
   Static
 </h2>
-
-<% if current_user %>
-  <%= "#{current_user.first_name} #{current_user.last_name}" %>
-  <h2><%= current_user.email %></h2>
-  <%= image_tag(current_user.avatar) %>
-  <%= button_to t("shared.logout"), destroy_user_session_path, data: {turbo: "false"}, method: :delete %>
-<% else %>
-  <%= link_to t("shared.login"), new_user_session_path %>
-<% end %>

@@ -4,3 +4,11 @@ en:
       subject: "[DMS] Office change notice"
       office_change:
         content: "Congratulations on becoming a member of %{company_name} company, %{office_name} office on %{updated_at}"
+
+      provide_password:
+        subject: "[DMS] Provide password"
+        content: "Your password is %{password}"
+
+    sessions:
+      new:
+        title: "Sign in to your account"
