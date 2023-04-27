@@ -9,6 +9,7 @@ vi:
           offices: "Văn phòng"
           my_devices: "Thiết bị của tôi"
           requests: "Yêu cầu của tôi"
+          devices: "Thiết bị"
       top:
         topbar:
           logout: "Đăng xuất"

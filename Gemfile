@@ -54,6 +54,12 @@ gem "image_processing", "~> 1.2"
 # https://github.com/CanCanCommunity/cancancan
 gem "cancancan"
 
+# https://github.com/caxlsx/caxlsx
+gem "caxlsx"
+
+# https://github.com/caxlsx/caxlsx_rails
+gem "caxlsx_rails"
+
 # https://github.com/rubyconfig/config
 gem "config"
 
@@ -80,6 +86,9 @@ gem "paranoia", "~> 2.6"
 
 # https://github.com/activerecord-hackery/ransack
 gem "ransack"
+
+# https://github.com/roo-rb/roo
+gem "roo"
 
 # https://github.com/zaru/webpush
 gem "webpush"

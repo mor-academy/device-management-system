@@ -20,3 +20,64 @@ en:
       form_new:
         add_related_devices: "Add related devices"
         no_related_devices: "No related devices"
+
+    index:
+      devices: "Devices Manager"
+      sub_devices: "Sub Devices"
+      main_devices: "Main Devices"
+      name: "Name"
+      code: "Code"
+      status: "Status"
+      brand: "Brand"
+      office: "Office"
+      category: "Category"
+      description: "Description"
+      price: "Price"
+      source: "Source"
+      images: "Image"
+      input_date: "Input at"
+      accessory_name: "Accessory Name"
+      accessory_id: "Accessory ID"
+      brand_name: "Brand Name"
+      download: "Download"
+      import: "Import"
+      action: "Action"
+      show: "Show"
+      office_not_found: "You didn't join any offices. Please contract system admin to join"
+
+    confirm_devices:
+      success: "Devices have been successfully added"
+      failed: "Please select the devices you want to add"
+      
+    import:
+      file_not_found: "File is not found. Please input your file"
+
+    table:
+      submit: "Submit"
+      name: "Name"
+      code: "Code"
+      status: "Status"
+      brand: "Brand"
+      office: "Office"
+      category: "Category"
+      description: "Description"
+      price: "Price"
+      source: "Source"
+      images: "Image"
+      input_date: "Input at"
+      accessory_name: "Accessory Name"
+      accessory_id: "Accessory ID"
+      brand_name: "Brand Name"
+      download: "Download"
+      import: "Import"
+      show: "Show"
+      action: "Action"
+
+    import_page:
+      upload: "Upload"
+      reset: "Reset"
+
+    import:
+      history_info:
+        file_name: "File Name"
+        input_date: "Input Date"

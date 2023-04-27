@@ -1,0 +1,3 @@
+<%= turbo_stream.update "import_draft", partial: "devices/table", locals: {devices: @devices} if @devices %>
+<%= turbo_stream.prepend "import_draft", partial: "devices/import/history_info", locals: {import_history: @import_history} if @import_history %>
+<%= render_turbo_stream_flash_messages %>

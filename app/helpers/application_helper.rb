@@ -9,6 +9,10 @@ module ApplicationHelper
     date&.strftime "%Y-%m-%d"
   end
 
+  def convert_datetime_ymd_hms datetime
+    datetime&.strftime "%Y-%m-%d %H:%M:%S"
+  end
+
   def render_turbo_stream_flash_messages
     turbo_stream.append :flash, partial: "layouts/flash"
   end
