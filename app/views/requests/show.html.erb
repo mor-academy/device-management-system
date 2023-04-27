@@ -1,0 +1,28 @@
+<div class="bg-white p-10 my-6 rounded-lg">
+  <div class="lg:flex lg:items-center lg:justify-between">
+    <div class="mt-4">
+      <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight"><%= @request.device&.name %></h2>
+      <div class="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
+        <div class="mt-2 flex items-center text-sm text-gray-500"><%= @request.device&.code %></div>
+        <div class="mt-2 flex items-center text-sm text-gray-500"><%= t ".type_request" %>: <%= Request.human_enum_name :type_request, @request.type_request  %></div>
+        <div class="mt-2 flex items-center text-sm text-gray-500"><%= t ".status" %>: <%= Request.human_enum_name :status, @request.status %></div>
+      </div>
+    </div>
+  </div>
+  <div class="my-4">
+    <h2 class="text-xl font-medium mb-2"><%= t ".reason" %>:<h2>
+    <div class="text-gray-500"><%= @request.reason %></div>
+  </div>
+  <div class="my-4">
+    <h2 class="text-xl font-medium mb-2"><%= t ".information" %>:<h2>
+    <div class="text-gray-500"><%= @request.information %></div>
+  </div>
+  <div class="mt-5 flex">
+    <span>
+      <%= link_to edit_request_path(@request), class: "inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" do %>
+        <i class="fa-regular fa-pen-to-square mr-1"></i>
+        <%= t "shared.edit" %>
+      <% end %>
+    </span>
+  </div>
+</div>

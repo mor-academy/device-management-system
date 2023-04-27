@@ -1,0 +1,38 @@
+en:
+  requests:
+    form:
+      edit_request: "Edit request"
+      add_request: "Add request"
+
+    index:
+      requests_list: "Requests list"
+      search_by: "Search by device code"
+      add_a_new_request: "Add a new request"
+      search_by: "Search by device name or code"
+      device_code: "Device code"
+      device_name: "Device name"
+      type_request: "Type request"
+      status: "Status"
+      action: "Action"
+
+    show:
+      reason: "Reason"
+      information: "Information"
+      type_request: "Type request"
+      status: "Status"
+
+    edit:
+      edit_request: "Edit request"
+
+    create:
+      success: "Successfully create a new request"
+
+    update:
+      success: "Edited request successfully"
+
+    new:
+      new_request: "New request"
+
+    model:
+      subject: "[DMS] Notification"
+      content: "There is a %{type_request} request for the %{device_name} device. Click to see details"

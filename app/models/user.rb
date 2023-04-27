@@ -9,8 +9,10 @@ class User < ApplicationRecord
   belongs_to :office, optional: true
 
   has_many :user_devices, dependent: :destroy
+  has_many :requests, dependent: :destroy
+  has_many :user_subscriptions, dependent: :destroy
 
-  after_update :send_mail_office_change
+  before_update :send_mail_office_change, if: :office_changed?
 
   enum status: {employee: 0, resigned: 1}
   enum role: {staff: 0, system_admin: 1, bod: 2, device_manager: 3, direct_manager: 4}

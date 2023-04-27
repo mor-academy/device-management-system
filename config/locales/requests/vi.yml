@@ -1,0 +1,38 @@
+vi:
+  requests:
+    form:
+      edit_request: "Cập nhật"
+      add_request: "Tạo mới"
+
+    index:
+      requests_list: "Danh sách yêu cầu"
+      search_by: "Tìm kiếm theo mã thiết bị"
+      add_a_new_request: "Tạo yêu cầu mới"
+      search_by: "Tìm kiếm theo tên thiết bị hoặc mã thiết bị"
+      device_code: "Mã thiết bị"
+      device_name: "Tên thiết bị"
+      type_request: "Loại yêu cầu"
+      status: "Trạng thái"
+      action: "Thao tác"
+    
+    show:
+      reason: "Lý do"
+      information: "Nội dung"
+      type_request: "Loại yêu cầu"
+      status: "Trạng thái"
+
+    edit:
+      edit_request: "Chỉnh sửa yêu cầu"
+
+    create:
+      success: "Tạo thành công yêu cầu mới"
+
+    update:
+      success: "Đã chỉnh sửa thành công yêu cầu"
+
+    new:
+      new_request: "Tạo yêu cầu mới"
+
+    model:
+      subject: "[DMS] Notification"
+      content: "Có một yêu cầu %{type_request} cho thiết bị %{device_name}. Nhấn để xem chi tiết"

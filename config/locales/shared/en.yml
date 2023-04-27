@@ -10,3 +10,4 @@ en:
     company_does_not_exist: "This company does not exist"
     office_does_not_exist: "This office does not exist"
     device_does_not_exist: "This device does not exist"
+    request_does_not_exist: "This request does not exist"

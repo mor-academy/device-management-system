@@ -19,7 +19,8 @@
     </div>
     <div id="flash" class="fixed z-[999] top-[10%] left-[50%] translate-x-[-50%] flex flex-col items-center gap-2">
       <%= render "layouts/flash" %>
-    </div>    
+    </div>
+    <%= content_tag :div, nil, data: {controller: "user-subscription", user_subscription_vapid_value: Base64.urlsafe_decode64(ENV["VAPID_PUBLIC_KEY"]).bytes, user_subscription_url_value: user_subscriptions_path, user_subscription_endpoint_value: current_user.user_subscriptions.pluck(:endpoint)} if current_user.present? %>
   </body>
   <%= render "layouts/javacripts" %>
 </html>

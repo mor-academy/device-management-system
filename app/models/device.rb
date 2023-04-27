@@ -22,7 +22,7 @@ class Device < ApplicationRecord
     end
 
     def ransackable_associations _auth_object = nil
-      %w(user_devices)
+      %w(user_devices requests)
     end
   end
 end

@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     root "static_pages#index"
 
     devise_for :users, skip: :omniauth_callbacks
-
+    resources :user_subscriptions
     resources :companies do
-      resources :offices do 
+      resources :offices do
         member do
           get :new_users
 
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       end
     end
     resources :user_devices
+    resources :requests
     resources :devices do
       resources :device_histories
 

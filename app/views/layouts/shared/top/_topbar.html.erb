@@ -71,8 +71,7 @@
         aria-label="Account"
         aria-haspopup="true"
       >
-        <%= image_tag(current_user.avatar, class:"object-cover w-8 h-8
-        rounded-full") %>
+        <%= image_tag avatar_url(current_user), class:"object-cover w-8 h-8 rounded-full" %>
       </button>
       <template x-if="isProfileMenuOpen">
         <ul
