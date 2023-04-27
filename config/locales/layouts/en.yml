@@ -9,6 +9,7 @@ en:
           offices: "Offices"
           my_devices: "My devices"
           requests: "Requests"
+          devices: "Devices"
       top:
         topbar:
           logout: "Log Out"

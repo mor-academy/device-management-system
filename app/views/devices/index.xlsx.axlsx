@@ -1,0 +1,8 @@
+wb = xlsx_package.workbook
+ws = wb.styles
+border = {color: "FF000000", style: :thin }
+@style_bold_border = ws.add_style b: true, border: border
+@style_border = ws.add_style b: false, border: border
+@style_bold = ws.add_style(b: true)
+render "devices/sheet/devices_sheet", wb: wb
+render "devices/sheet/accessories_sheet", wb: wb

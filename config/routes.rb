@@ -28,6 +28,14 @@ Rails.application.routes.draw do
 
         patch :add_sub_devices
       end
+
+      collection do
+        get :import_page
+
+        match :import, via: [:get, :post]
+        
+        patch :confirm_devices
+      end
     end
   end
 

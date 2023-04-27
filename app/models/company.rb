@@ -4,6 +4,7 @@ class Company < ApplicationRecord
   has_one :office_info, as: :info, dependent: :destroy
 
   has_many :offices, dependent: :destroy
+  has_many :devices, through: :offices
   has_many :office_infos, as: :info, dependent: :destroy
 
   ATTR_PARAMS = [:id, :website, {office_infos_attributes:

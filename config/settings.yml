@@ -2,3 +2,13 @@ pagy:
   config:
     page:
       default: 10
+
+devices:
+  excel:
+    one_office:
+      pane:
+        top_left_cell: "A2"
+        state: "frozen"
+        y_split: 1
+        x_split: 0
+        active_pane: "bottom_right"

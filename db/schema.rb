@@ -104,6 +104,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_093000) do
     t.bigint "office_id"
     t.bigint "category_id"
     t.datetime "deleted_at"
+    t.date "input_date"
+    t.bigint "import_history_id"
     t.index ["brand_id"], name: "index_devices_on_brand_id"
     t.index ["category_id"], name: "index_devices_on_category_id"
     t.index ["deleted_at"], name: "index_devices_on_deleted_at"
@@ -131,6 +133,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_093000) do
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_groups_on_deleted_at"
     t.index ["user_id"], name: "index_groups_on_user_id"
+  end
+
+  create_table "import_histories", force: :cascade do |t|
+    t.string "file_name"
+    t.datetime "input_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "author_id"
+    t.datetime "deleted_at"
+    t.index ["author_id"], name: "index_import_histories_on_author_id"
+    t.index ["deleted_at"], name: "index_import_histories_on_deleted_at"
   end
 
   create_table "office_infos", force: :cascade do |t|
@@ -256,6 +269,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_093000) do
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
   add_foreign_key "groups", "users"
+  add_foreign_key "import_histories", "users", column: "author_id"
   add_foreign_key "offices", "companies"
   add_foreign_key "requests", "devices"
   add_foreign_key "requests", "users"

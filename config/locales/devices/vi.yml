@@ -20,3 +20,64 @@ vi:
       form_new:
         add_related_devices: "Thêm thiết bị liên quan"
         no_related_devices: "Không có thiết bị liên quan"
+
+    index:
+      devices: "Quản lí thiết bị "
+      main_devices: "Thiết bị chính"
+      sub_devices: "Thiết bị phụ"
+      name: "Tên thiết bị"
+      code: "Mã số thiết bị"
+      status: "Trạng thái"
+      brand: "Thương hiệu"
+      office: "Văn phòng"
+      category: "Thể loại sản phẩm"
+      description: "Miêu tả sản phẩm"
+      price: "Giá tiền sản phẩm"
+      source: "Đường dẫn mua hàng"
+      images: "Hình ảnh sản phẩm"
+      input_date: "Thời gian nhập"
+      accessory_name: "Accessory Name"
+      accessory_id: "Accessory ID"
+      brand_name: "Tên hãng"
+      download: "Tải xuống"
+      import: "Tải lên thiết bị"
+      action: "Thao tác"
+      show: "Chi tiết"
+      office_not_found: "Bạn đang không tham gia văn phòng nào. Xin vui lòng liên hệ với quản trị viên để được tham gia"
+
+    confirm_devices:
+      success: "Các thiết bị đã được thêm thành công"
+      failed: "Vui lòng chọn các thiết bị muốn thêm vào"
+
+    import:
+      file_not_found: "Vui lòng tải lên file"
+
+    table:
+      submit: "Tạo thiết bị"
+      name: "Tên thiết bị"
+      code: "Mã số thiết bị"
+      status: "Trạng thái"
+      brand: "Thương hiệu"
+      office: "Văn phòng"
+      category: "Thể loại sản phẩm"
+      description: "Miêu tả sản phẩm"
+      price: "Giá tiền sản phẩm"
+      source: "Đường dẫn mua hàng"
+      images: "Hình ảnh sản phẩm"
+      input_date: "Thời gian nhập"
+      accessory_name: "Accessory Name"
+      accessory_id: "Accessory ID"
+      brand_name: "Tên hãng"
+      download: "Tải xuống"
+      import: "Tải lên thiết bị"
+      action: "Thao tác"
+      show: "Chi tiết"
+
+    import_page:
+      upload: "Tải lên"
+      reset: "Tải lại"
+    
+    import:
+      history_info:
+        file_name: "Tên tập tin"
+        input_date: "Ngày nhập"

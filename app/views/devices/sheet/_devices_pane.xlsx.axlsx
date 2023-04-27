@@ -1,0 +1,7 @@
+sheet.sheet_view.pane do |pane|
+  pane.top_left_cell = Settings.devices.excel.one_office.pane.top_left_cell
+  pane.state = Settings.devices.excel.one_office.pane.state.to_sym
+  pane.y_split = Settings.devices.excel.one_office.pane.y_split
+  pane.x_split = Settings.devices.excel.one_office.pane.x_split
+  pane.active_pane = Settings.devices.excel.one_office.pane.active_pane.to_sym
+end

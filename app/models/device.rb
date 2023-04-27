@@ -5,17 +5,18 @@ class Device < ApplicationRecord
   belongs_to :office
   belongs_to :brand, optional: true
   belongs_to :parent_device, class_name: Device.name, optional: true
+  belongs_to :import_history, optional: true
 
   has_many :sub_devices, class_name: Device.name, dependent: :destroy
   has_many :device_histories, dependent: :destroy
   has_many :user_devices, dependent: :destroy
   has_many :requests, dependent: :destroy
 
-  enum status: {ready: 0, fixing: 1, using: 2}
+  enum status: {ready: 0, fixing: 1, using: 2, draft: 3}
 
   scope :without_sub_device, ->{where device_id: nil}
+  scope :have_parent, ->{where.not device_id: nil}
   scope :without_current_device, ->(ids){where.not id: ids}
-
   class << self
     def ransackable_attributes _auth_object = nil
       %w(name code)

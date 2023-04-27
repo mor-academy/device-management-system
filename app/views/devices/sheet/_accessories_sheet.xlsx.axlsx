@@ -1,0 +1,34 @@
+wb.add_worksheet name: t("devices.index.sub_devices") do |sheet|
+  render "devices/sheet/devices_pane", sheet: sheet
+  sheet.add_row [
+    "ID",
+    "#{t "devices.index.name"}",
+    "#{t "devices.index.code"}",
+    "#{t "devices.index.description"}",
+    "#{t "devices.index.source"}",
+    "#{t "devices.index.status"}",
+    "#{t "devices.index.brand"}",
+    "#{t "devices.index.input_date"}",
+    "#{t "devices.index.office"}",
+    "#{t "devices.index.category"}",
+    "#{t "devices.index.price"}",
+    "#{t "devices.index.main_devices"}",
+  ], style: @style_bold_border
+  @devices_belong.each do |device|
+    values = [
+      device.id,
+      device.name,
+      device.code,
+      device.description,
+      device.source,
+      Device.human_enum_name(:status, device.status),
+      device.brand&.name,
+      convert_date_ymd(device.input_date),
+      device.office.office_info.name,
+      device.category&.name,
+      device.price,
+      device.device_id,
+    ]
+        sheet.add_row values, types: [*Array.new(values.length - 2, :string), :float, :string], style: @style_border
+    end
+end

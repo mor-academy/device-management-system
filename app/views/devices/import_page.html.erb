@@ -1,0 +1,10 @@
+<%= form_with url: import_devices_url, method: "post", multipart: true, data: {controller: :upload, action: "turbo:submit-end->upload#submitEnd turbo:submit-start->upload#submitStart"} do |f| %>
+    <div class="flex items-center justify-center w-1/2">
+        <%= f.file_field :file, class:"flex flex-col items-center justify-center w-full h-80 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600" %>
+    </div>
+    <%= f.submit t(".upload"), class:"text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 my-2 disabled:opacity-25", data: {upload_target: "buttonSubmit"}%>
+    <%= button_tag t(".reset"), type:"button", class:"text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 my-2 disabled:opacity-25", data:{upload_target: "buttonReset", action: "upload#reset"}, disabled: true %>
+<% end %>
+<%= form_with url: confirm_devices_devices_path, method: :patch do |_| %>
+    <%= turbo_frame_tag :import_draft %>
+<% end %>
