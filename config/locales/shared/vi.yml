@@ -10,3 +10,4 @@ vi:
     company_does_not_exist: "Không tồn tại công ty này"
     office_does_not_exist: "Không tồn tại văn phòng này"
     device_does_not_exist: "Không tồn tại thiết bị này"
+    request_does_not_exist: "Không tồn tại yêu cầu này"

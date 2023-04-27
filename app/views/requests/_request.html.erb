@@ -1,0 +1,25 @@
+<tr id="<%= dom_id request %>" class="text-gray-700" is="turbo-frame">
+  <td class="px-4 py-3 text-sm font-black"><%= request.id %></td>
+  <td class="px-4 py-3 text-sm">
+    <%= link_to device_path(request.device.id), class: "font-medium text-slate-600 hover:text-slate-900" do %>
+      <%= request.device.code %>
+    <% end %>
+  </td>
+  <td class="px-4 py-3 text-sm">
+    <%= link_to device_path(request.device.id), class: "font-medium text-slate-600 hover:text-slate-900" do %>
+      <%= request.device.name %>
+    <% end %>
+  </td>
+  <td class="px-4 py-3 text-sm font-bold"><%= Request.human_enum_name :type_request, request.type_request %></td>
+  <td class="px-4 py-3 text-sm text-blue-800 font-semibold"><%= Request.human_enum_name :status, request.status %></td>
+  <td class="px-4 py-3 text-sm w-36">
+    <%= link_to edit_request_path(request), data: {turbo_frame: :global_modal, action: "click->app#openModal"}, class: "flex items-center gap-[6px] mb-1 hover:text-indigo-600" do %>
+      <i class="fa-regular fa-pen-to-square"></i>
+      <%= t "shared.edit" %>
+    <% end %>
+    <%= link_to request_path(request), class: "flex items-center gap-1 hover:text-indigo-600" do %>
+      <i class="fa-regular fa-eye"></i>
+      <%= t "shared.detail" %>
+    <% end %>
+  </td>
+</tr>

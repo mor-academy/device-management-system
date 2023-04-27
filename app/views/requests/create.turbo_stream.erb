@@ -1,0 +1,3 @@
+<%= turbo_stream.prepend :requests, partial: "requests/request", locals: {request: @request} %>
+<%= render_turbo_stream_close_modal %>
+<%= render_turbo_stream_flash_messages %>

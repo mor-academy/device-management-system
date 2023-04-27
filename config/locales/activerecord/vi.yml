@@ -32,3 +32,16 @@ vi:
           ready: "Sẵn sàng"
           fixing: "Đang sửa chữa"
           using: "Đang sử dụng"
+      request:
+        statuses:
+          forwarded: "Đã chuyển tiếp"
+          pending: "Đang chờ"
+          approved: "Đã duyệt"
+          reject: "Từ chối"
+          cancel: "Đã hủy"
+        type_requests:
+          repair: "Sửa chữa"
+          replace: "Thay thế"
+          buy: "Mua mới"
+          supply: "Cấp mới"
+          remove: "Thu hồi"

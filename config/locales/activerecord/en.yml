@@ -32,3 +32,16 @@ en:
           ready: "Ready"
           fixing: "Under repair"
           using: "Being used"
+      request:
+        statuses:
+          forwarded: "Forwarded"
+          pending: "Pending"
+          approved: "Approved"
+          reject: "Reject"
+          cancel: "Cancel"
+        type_requests:
+          repair: "Repair"
+          replace: "Replace"
+          buy: "Buy"
+          supply: "Supply"
+          remove: "Remove"

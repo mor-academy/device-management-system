@@ -16,6 +16,7 @@ vi:
       success: "Các thiết bị liên quan đã được thêm thành công"
       failed: "Vui lòng chọn các thiết bị muốn thêm vào"
 
-    new_sub_devices:
-      add_related_devices: "Thêm thiết bị liên quan"
-      no_related_devices: "Không có thiết bị liên quan"
+    sub_devices:
+      form_new:
+        add_related_devices: "Thêm thiết bị liên quan"
+        no_related_devices: "Không có thiết bị liên quan"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_17_045048) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_25_093000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -157,7 +157,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_17_045048) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.integer "type", default: 0, null: false
+    t.integer "type_request", default: 0, null: false
     t.integer "status"
     t.text "reason"
     t.text "information"
@@ -197,6 +197,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_17_045048) do
     t.index ["deleted_at"], name: "index_user_devices_on_deleted_at"
     t.index ["device_id"], name: "index_user_devices_on_device_id"
     t.index ["user_id"], name: "index_user_devices_on_user_id"
+  end
+
+  create_table "user_subscriptions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "endpoint"
+    t.json "keys"
+    t.datetime "expiration_time"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_subscriptions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -251,4 +262,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_17_045048) do
   add_foreign_key "user_confirm_devices", "user_devices"
   add_foreign_key "user_devices", "devices"
   add_foreign_key "user_devices", "users"
+  add_foreign_key "user_subscriptions", "users"
 end

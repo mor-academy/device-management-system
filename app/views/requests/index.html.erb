@@ -1,0 +1,42 @@
+<% content_for :search_box do %>
+  <%= render "layouts/shared/top/search_box", query: @query, url: requests_path, field: :device_name_or_device_code_cont, placeholder: t(".search_by") %>
+<% end %>
+
+<%= turbo_stream_from current_user, :requests %>
+
+<div class="grid grid-cols-4 gap-4 items-center">
+  <div class="col-span-3">
+    <h2 class="my-6 text-2xl font-semibold text-gray-700">
+      <%= t ".requests_list" %>
+    </h2>
+  </div>
+  <div>
+    <%= link_to new_request_path, data: {turbo_frame: :global_modal, action: "click->app#openModal"}, class: "float-right rounded-lg pointer-events-auto bg-indigo-600 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-indigo-500" do %>
+      <i class="fa-solid fa-plus mr-2 text-xs"></i>
+      <span class="font-semibold text-xs"><%= t ".add_a_new_request" %></span>
+    <% end %>
+  </div>
+</div>
+<div class="w-full overflow-hidden rounded-lg shadow-xs border">
+  <div class="w-full overflow-x-auto">
+    <table class="w-full whitespace-no-wrap">
+      <thead>
+        <tr class="text-xs font-semibold tracking-wide text-left text-gray-800 uppercase border-b bg-gray-50">
+          <th class="px-4 py-3"><%= sort_link @query, :id, t(".id") %></th>
+          <th class="px-4 py-3"><%= sort_link @query, :device_code, t(".device_code") %></th>
+          <th class="px-4 py-3"><%= sort_link @query, :device_name, t(".device_name") %></th>
+          <th class="px-4 py-3"><%= sort_link @query, :type_request, t(".type_request") %></th>
+          <th class="px-4 py-3"><%= sort_link @query, :status, t(".status") %></th>
+          <th class="px-4 py-3"><%= t ".action" %></th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y" is="turbo-frame" id="requests">
+        <%= render @requests %>
+        <tr class="text-gray-700">
+          <td class="px-4 py-3 text-sm text-right" colspan="7"><%= pagy_nav(@pagy).html_safe %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= render "layouts/modals/modal_medium" %>

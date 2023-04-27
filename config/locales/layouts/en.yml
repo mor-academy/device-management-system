@@ -8,6 +8,7 @@ en:
           companies: "Companies"
           offices: "Offices"
           my_devices: "My devices"
+          requests: "Requests"
       top:
         topbar:
           logout: "Log Out"
