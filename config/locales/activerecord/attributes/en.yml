@@ -1,6 +1,20 @@
 en:
   activerecord:
     attributes:
+      company:
+        website: "Website"
+      company/office_infos:
+        name: "Name"
+        email: "Email"
+        phone_number: "Phone number"
+      office/office_infos:
+        name: "Name"
+        address: "Address"
+      office_info:
+        name: "Name"
+        phone_number: "Phone number"
+        address: "Address"
+        information: "Information"
       user:
         statuses:
           employee: "Working"

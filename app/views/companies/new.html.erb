@@ -2,4 +2,6 @@
   <%= t ".new_company" %>
 </h2>
 
-<%= render "form", company: @company %>
+<%= turbo_frame_tag :global_modal do %>
+  <%= render "form", company: @company %>
+<% end %>

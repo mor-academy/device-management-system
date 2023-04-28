@@ -1,4 +1,4 @@
-<tr class="text-gray-700">
+<tr class="text-gray-700" id="<%= dom_id office %>" is="turbo-frame">
   <td class="px-4 py-3">
     <div class="flex items-center text-sm">
       <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
@@ -17,7 +17,7 @@
   <td class="px-4 py-3 text-sm"><%= office.office_info&.address %></td>
   <td class="px-4 py-3 text-sm"><%= office.office_info&.phone_number %></td>
   <td class="px-4 py-3 text-sm w-36">
-    <%= link_to edit_company_office_path(company_id: office.company_id, id: office.id), class: "flex items-center gap-[6px] mb-1 hover:text-indigo-600" do %>
+    <%= link_to edit_company_office_path(company_id: office.company_id, id: office.id), data: {turbo_frame: :global_modal, action: "click->app#openModal"}, class: "flex items-center gap-[6px] mb-1 hover:text-indigo-600" do %>
       <i class="fa-regular fa-pen-to-square"></i>
       <%= t "shared.edit" %>
     <% end %>

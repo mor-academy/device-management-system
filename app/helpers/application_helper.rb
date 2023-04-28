@@ -26,4 +26,12 @@ module ApplicationHelper
 
     "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
   end
+
+  def form_error_notification object, key
+    return unless object.errors.any?
+
+    tag.span class: "text-xs text-red-500" do
+      object.errors.full_messages_for(key)&.to_sentence&.capitalize
+    end
+  end
 end
