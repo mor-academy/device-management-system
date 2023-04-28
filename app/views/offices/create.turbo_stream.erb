@@ -1,0 +1,3 @@
+<%= turbo_stream.prepend :offices, partial: "offices/office", locals: {office: @office} %>
+<%= render_turbo_stream_close_modal %>
+<%= render_turbo_stream_flash_messages %>

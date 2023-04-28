@@ -12,6 +12,8 @@ class Company < ApplicationRecord
 
   accepts_nested_attributes_for :office_infos
 
+  broadcasts_to ->(_company){:companies}, inserts_by: :prepend
+
   class << self
     def ransackable_attributes _auth_object = nil
       %w(id)

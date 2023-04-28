@@ -1,0 +1,17 @@
+dictionary:
+  name: &blank "can't be blank"
+
+en:
+  activerecord:
+    errors:
+      messages:
+        blank: *blank
+      models:
+        company/office_infos:
+          attributes:
+            name:
+              blank: *blank
+            email:
+              blank: *blank
+            phone_number:
+              blank: *blank

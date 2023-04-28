@@ -1,0 +1,17 @@
+dictionary:
+  name: &blank "không được để trống"
+
+vi:
+  activerecord:
+    errors:
+      messages:
+        blank: *blank
+      models:
+        company/office_infos:
+          attributes:
+            name:
+              blank: *blank
+            email:
+              blank: *blank
+            phone_number:
+              blank: *blank

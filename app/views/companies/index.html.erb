@@ -2,6 +2,8 @@
   <%= render "layouts/shared/top/search_box", query: @query, url: companies_path, field: :office_info_name_cont, placeholder: t(".search_by") %>
 <% end %>
 
+<%= turbo_stream_from :companies %>
+
 <div class="grid grid-cols-4 gap-4 items-center">
   <div class="col-span-3">
     <h2 class="my-6 text-2xl font-semibold text-gray-700">
@@ -9,7 +11,7 @@
     </h2>
   </div>
   <div>
-    <%= link_to new_company_path, class: "float-right rounded-lg pointer-events-auto bg-indigo-600 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-indigo-500" do %>
+    <%= link_to new_company_path, data: {turbo_frame: :global_modal, action: "click->app#openModal"}, class: "float-right rounded-lg pointer-events-auto bg-indigo-600 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-indigo-500" do %>
       <i class="fa-solid fa-plus mr-1 text-xs"></i>
       <span class="font-semibold text-xs"><%= t ".add_a_new_company" %></span>
     <% end %>
@@ -27,7 +29,7 @@
           <th class="px-4 py-3"><%= t ".action" %></th>
         </tr>
       </thead>
-      <tbody class="bg-white divide-y">
+      <tbody class="bg-white divide-y" is="turbo-frame" id="companies">
         <%= render @companies %>
         <tr class="text-gray-700">
           <td class="px-4 py-3 text-sm text-right" colspan="6"><%= pagy_nav(@pagy).html_safe %></td>
@@ -36,3 +38,4 @@
     </table>
   </div>
 </div>
+<%= render "layouts/modals/modal_medium" %>

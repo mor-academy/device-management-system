@@ -6,6 +6,7 @@ export default class extends Controller {
     endpoint: Array,
     url: String
   }
+
   connect() {
     if (navigator.serviceWorker) {
       navigator.serviceWorker.register('/service_worker.js', { scope: './' })

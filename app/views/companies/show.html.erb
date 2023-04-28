@@ -13,12 +13,6 @@
   <%= @company.office_info&.information %>
 </div>
 <div class="mt-5 flex">
-  <span>
-    <%= link_to edit_company_path(@company), class: "inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" do %>
-      <i class="fa-regular fa-pen-to-square mr-1"></i>
-      <%= t "shared.edit" %>
-    <% end %>
-  </span>
   <span class="sm:ml-3">
     <%= link_to t(".see_list_of_office"), company_offices_path(@company), class: "inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
   </span>

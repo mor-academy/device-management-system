@@ -13,7 +13,9 @@ class UserDevicesController < ApplicationController
   def create
     @user_device = @device.user_devices.build user_device_params
     if @user_device.save
-      flash.now[:notice] = t ".success"
+      respond_to do |format|
+        format.turbo_stream{flash.now[:notice] = t(".success")}
+      end
     else
       render :new, status: :unprocessable_entity
     end
