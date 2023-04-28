@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_25_093000) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_28_022047) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -104,8 +104,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_093000) do
     t.bigint "office_id"
     t.bigint "category_id"
     t.datetime "deleted_at"
-    t.date "input_date"
     t.bigint "import_history_id"
+    t.date "input_date"
     t.index ["brand_id"], name: "index_devices_on_brand_id"
     t.index ["category_id"], name: "index_devices_on_category_id"
     t.index ["deleted_at"], name: "index_devices_on_deleted_at"

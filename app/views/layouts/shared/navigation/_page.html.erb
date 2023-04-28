@@ -9,7 +9,7 @@
     <% if current_user.present? %>
       <%= render "layouts/shared/navigation/item", navigation_path: user_devices_path, navigation_active: is_active_navigation?(:user_devices), navigation_icon: "fa-solid fa-hard-drive", navigation_content: t(".my_devices") %>
       <%= render "layouts/shared/navigation/item", navigation_path: requests_path, navigation_active: is_active_navigation?(:requests), navigation_icon: "fa-regular fa-rectangle-list", navigation_content: t(".requests") %>
-      <%= render "layouts/shared/navigation/item", navigation_path: devices_path, navigation_active: is_active_navigation?(:requests), navigation_icon: "fa-solid fa-hard-drive", navigation_content: t(".devices") %>
+      <%= render "layouts/shared/navigation/item", navigation_path: devices_path, navigation_active: is_active_navigation?(:devices), navigation_icon: "fa-solid fa-hard-drive", navigation_content: t(".devices") %>
     <% end %>
   </ul>
 </div>
