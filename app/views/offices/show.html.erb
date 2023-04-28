@@ -11,14 +11,6 @@
 <div class="my-4 text-gray-500">
   <%= @office.office_info&.information %>
 </div>
-<div class="my-4 flex">
-  <span>
-    <%= link_to edit_company_office_path(@office), class: "inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" do %>
-      <i class="fa-regular fa-pen-to-square mr-1"></i>
-      <%= t "shared.edit" %>
-    <% end %>
-  </span>
-</div>
 
 <div class="grid grid-cols-4 gap-4 items-center">
   <div class="col-span-3">

@@ -5,7 +5,8 @@ class OfficesController < ApplicationController
 
   def index
     @query = @company.offices.ransack params[:query]
-    @pagy, @offices = pagy @query.result(distinct: true).recent, items: Settings.pagy.config.page.default
+    @pagy, @offices = pagy @query.result(distinct: true).includes(:office_info).recent,
+                           items: Settings.pagy.config.page.default
   end
 
   def show
@@ -23,19 +24,21 @@ class OfficesController < ApplicationController
   def create
     @office = @company.offices.build office_params
     if @office.save
-      redirect_to company_offices_path, notice: t(".success")
+      respond_to do |format|
+        format.turbo_stream{flash.now[:notice] = t(".success")}
+      end
     else
-      flash.now[:alert] = @office.errors.full_messages.to_sentence.capitalize
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
     if @office.update office_params
-      redirect_to company_offices_path, notice: t(".success")
+      respond_to do |format|
+        format.turbo_stream{flash.now[:notice] = t(".success")}
+      end
     else
-      flash.now[:alert] = @office.errors.full_messages.to_sentence.capitalize
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

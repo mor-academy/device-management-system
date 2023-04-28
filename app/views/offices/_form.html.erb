@@ -1,42 +1,34 @@
-<%= form_with model: office, url: (action_name&.to_sym == :edit ? company_office_path : company_offices_path), data: { turbo: false }, class: "bg-white p-10 rounded-xl shadow-md" do |f| %>
-  <div class="space-y-6">
-    <div class="border-b border-gray-900/10 pb-6">
-      <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
-        <%= f.fields_for :office_infos do |office_info| %>
-          <div class="sm:col-span-6">
-            <%= f.label :name, class: "block text-sm font-medium leading-6 text-gray-900" %>
-            <div class="mt-2">
-              <%= office_info.text_field :name, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
-            </div>
-          </div>
-          <div class="sm:col-span-6">
-            <%= f.label :email, class: "block text-sm font-medium leading-6 text-gray-900" %>
-            <div class="mt-2">
-              <%= office_info.email_field :email, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
-            </div>
-          </div>
-          <div class="sm:col-span-6">
-            <%= f.label :phone_number, class: "block text-sm font-medium leading-6 text-gray-900" %>
-            <div class="mt-2">
-              <%= office_info.telephone_field :phone_number, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
-            </div>
-          </div>
-          <div class="sm:col-span-6">
-            <%= f.label :address, class: "block text-sm font-medium leading-6 text-gray-900" %>
-            <div class="mt-2">
-              <%= office_info.text_field :address, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
-            </div>
-          </div>
-          <div class="sm:col-span-full">
-            <%= f.label :information, class: "block text-sm font-medium leading-6 text-gray-900" %>
-            <div class="mt-2 rich-hidden-attachment">
-              <%= office_info.rich_text_area :information,class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
-            </div>
-          </div>
-        <% end %>
+<%= form_with model: office, url: (action_name&.to_sym == :edit ? company_office_path : company_offices_path), class: "p-10 rounded-xl" do |f| %>
+  <%= f.fields_for :office_infos do |office_info| %>
+    <div class="relative z-0 w-full mb-6 group">
+      <%= office_info.text_field :name, class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+      <%= office_info.label :name, class: "peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %>
+      <%= form_error_notification office, :"office_infos.name" %>
+    </div>
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 w-full mb-6 group">
+        <%= office_info.email_field :email, class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+        <%= office_info.label :email, class: "peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %>
+      </div>
+      <div class="relative z-0 w-full mb-6 group">
+        <%= office_info.telephone_field :phone_number, class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+        <%= office_info.label :phone_number, class: "peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %>
       </div>
     </div>
-  <div>
+    <div class="relative z-0 w-full mb-6 group">
+      <%= office_info.text_field :address, class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+      <%= office_info.label :address, class: "peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %>
+      <%= form_error_notification office, :"office_infos.address" %>
+    </div>
+    <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-12">
+      <div class="sm:col-span-full">
+        <%= office_info.label :information, class: "font-medium text-sm text-gray-500" %>
+        <div class="mt-2 rich-hidden-attachment">
+          <%= office_info.rich_text_area :information, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
   <div class="mt-6 flex items-center justify-start gap-x-6">
     <%= f.submit action_name&.to_sym == :edit ? t(".edit_office") : t(".add_office"), class: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
   <div>

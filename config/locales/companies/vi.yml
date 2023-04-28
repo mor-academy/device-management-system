@@ -1,12 +1,12 @@
 vi:
   companies:
     form:
-      website: "Trang web: "
-      name: "Tên công ty: "
-      information: "Thông tin công ty: "
-      address: "Địa chỉ: "
-      email: "Email: "
-      phone_number: "Số điện thoại: "
+      website: "Trang web"
+      name: "Tên công ty"
+      information: "Thông tin công ty"
+      address: "Địa chỉ"
+      email: "Email"
+      phone_number: "Số điện thoại"
       edit_company: "Chỉnh sửa công ty"
       add_company: "Thêm công ty"
  

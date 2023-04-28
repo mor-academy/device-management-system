@@ -3,7 +3,8 @@ class CompaniesController < ApplicationController
 
   def index
     @query = Company.ransack params[:query]
-    @pagy, @companies = pagy @query.result(distinct: true).recent, items: Settings.pagy.config.page.default
+    @pagy, @companies = pagy @query.result(distinct: true).includes(:office_info).recent,
+                             items: Settings.pagy.config.page.default
   end
 
   def show; end
@@ -18,19 +19,21 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new company_params
     if @company.save
-      redirect_to companies_path, notice: t(".success")
+      respond_to do |format|
+        format.turbo_stream{flash.now[:notice] = t(".success")}
+      end
     else
-      flash.now[:alert] = @company.errors.full_messages.to_sentence.capitalize
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
     if @company.update company_params
-      redirect_to companies_path, notice: t(".success")
+      respond_to do |format|
+        format.turbo_stream{flash.now[:notice] = t(".success")}
+      end
     else
-      flash.now[:alert] = @company.errors.full_messages.to_sentence.capitalize
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

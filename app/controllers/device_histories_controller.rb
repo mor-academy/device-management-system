@@ -8,7 +8,9 @@ class DeviceHistoriesController < ApplicationController
   def create
     @device_history = @device.device_histories.build device_history_params
     if @device_history.save
-      flash.now[:notice] = t ".success"
+      respond_to do |format|
+        format.turbo_stream{flash.now[:notice] = t(".success")}
+      end
     else
       render :new, status: :unprocessable_entity
     end

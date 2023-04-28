@@ -1,6 +1,20 @@
 vi:
   activerecord:
     attributes:
+      company:
+        website: "Website"
+      company/office_infos:
+        name: "Tên công ty"
+        email: "Email"
+        phone_number: "Số điện thoại"
+      office/office_infos:
+        name: "Tên văn phòng"
+        address: "Địa chỉ"
+      office_info:
+        name: "Tên"
+        phone_number: "Số điện thoại"
+        address: "Địa chỉ"
+        information: "Thông tin"
       user:
         statuses:
           employee: "Nhân viên"

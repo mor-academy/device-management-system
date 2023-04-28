@@ -2,4 +2,6 @@
   <%= t ".edit_office" %>
 </h2>
 
-<%= render "form", office: @office %>
+<%= turbo_frame_tag :global_modal do %>
+  <%= render "form", office: @office %>
+<% end %>

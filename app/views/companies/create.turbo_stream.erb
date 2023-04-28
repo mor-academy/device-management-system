@@ -1,0 +1,3 @@
+<%= turbo_stream.prepend :companies, partial: "companies/company", locals: {company: @company} %>
+<%= render_turbo_stream_close_modal %>
+<%= render_turbo_stream_flash_messages %>
