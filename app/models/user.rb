@@ -7,16 +7,18 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:google_oauth2]
 
   belongs_to :office, optional: true
+  belongs_to :leader, class_name: User.name, optional: true
 
   has_many :import_histories, foreign_key: :author_id, class_name: ImportHistory.name, dependent: :destroy
   has_many :user_devices, dependent: :destroy
   has_many :requests, dependent: :destroy
   has_many :user_subscriptions, dependent: :destroy
+  has_many :members, foreign_key: :leader_id, class_name: User.name, dependent: :nullify
 
   before_update :send_mail_office_change, if: :office_changed?
 
   enum status: {employee: 0, resigned: 1}
-  enum role: {staff: 0, system_admin: 1, bod: 2, device_manager: 3, direct_manager: 4}, _prefix: true
+  enum role: {staff: 0, system_admin: 1, bod: 2, device_manager: 3}, _prefix: true
 
   scope :without_office, ->{where office_id: nil}
   scope :without_users, ->(ids){where.not id: ids}
