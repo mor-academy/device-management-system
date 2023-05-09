@@ -7,7 +7,9 @@ class CompaniesController < ApplicationController
                              items: Settings.pagy.config.page.default
   end
 
-  def show; end
+  def show
+    @organizational_chart = Charts::OrganizationalChartService.new(company: @company).perform
+  end
 
   def new
     @company = Company.new

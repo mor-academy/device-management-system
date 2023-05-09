@@ -90,6 +90,9 @@ gem "ransack"
 # https://github.com/roo-rb/roo
 gem "roo"
 
+# https://github.com/winston/google_visualr
+gem "google_visualr"
+
 # https://github.com/zaru/webpush
 gem "webpush"
 

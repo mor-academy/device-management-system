@@ -150,6 +150,7 @@ GEM
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    google_visualr (2.5.1)
     hashie (5.0.0)
     hkdf (0.3.0)
     htmlentities (4.3.4)
@@ -372,6 +373,7 @@ DEPENDENCIES
   debug
   devise
   faker
+  google_visualr
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
