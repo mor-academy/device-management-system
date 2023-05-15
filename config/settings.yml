@@ -3,6 +3,13 @@ pagy:
     page:
       default: 10
 
+faker:
+  internet:
+    email:
+      domain_gmail: "gmail.com"
+  number:
+    digits_10: 10
+
 devices:
   excel:
     one_office:
@@ -12,3 +19,6 @@ devices:
         y_split: 1
         x_split: 0
         active_pane: "bottom_right"
+
+spec:
+  number_of_records_25: 25

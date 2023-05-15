@@ -103,11 +103,23 @@ group :development, :test do
   # https://github.com/fgrehm/letter_opener_web
   gem "letter_opener_web"
 
+  # https://github.com/thoughtbot/factory_bot_rails
+  gem "factory_bot_rails"
+
+  # https://github.com/rails/rails-controller-testing
+  gem "rails-controller-testing"
+
   # https://github.com/rubocop/rubocop
   gem "rubocop", require: false
 
   # https://github.com/rubocop/rubocop-rails
   gem "rubocop-rails", require: false
+
+  # https://github.com/rspec/rspec-rails
+  gem "rspec-rails"
+
+  # https://github.com/simplecov-ruby/simplecov
+  gem "simplecov", require: false
 end
 
 group :development do
