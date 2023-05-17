@@ -15,6 +15,7 @@ module DeviceManagementSystem
     config.i18n.available_locales = [:en, :vi]
     config.i18n.fallbacks = {en: [:vi], vi: [:en]}
     config.i18n.default_locale = :en
+    config.active_job.queue_adapter = :sidekiq
     
     # Configuration for the application, engines, and railties goes here.
     #

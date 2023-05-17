@@ -69,6 +69,9 @@ gem "devise"
 # https://github.com/faker-ruby/faker
 gem "faker"
 
+# https://github.com/winston/google_visualr
+gem "google_visualr"
+
 # https://github.com/omniauth/omniauth
 gem "omniauth"
 
@@ -90,8 +93,8 @@ gem "ransack"
 # https://github.com/roo-rb/roo
 gem "roo"
 
-# https://github.com/winston/google_visualr
-gem "google_visualr"
+# https://github.com/sidekiq/sidekiq
+gem "sidekiq"
 
 # https://github.com/zaru/webpush
 gem "webpush"
