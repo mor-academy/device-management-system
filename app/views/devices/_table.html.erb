@@ -2,10 +2,11 @@
   <div class="w-full">
     <table class="w-full whitespace-no-wrap">
       <thead>
-        <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+        <tr class="text-xs font-semibold tracking-wide text-left text-gray-800 uppercase border-b bg-gray-50">
           <% if action_name == "import" %>
-              <th class="px-4 py-3"><%= t ".id"%></th>
+            <th class="px-4 py-3"><%= t ".id"%></th>
           <% end %>
+          <th class="px-4 py-3"><%= t ".id"%></th>
           <th class="px-4 py-3"><%= t ".name" %></th>
           <th class="px-4 py-3"><%= t ".code" %></th>
           <th class="px-4 py-3"><%= t ".status" %></th>
@@ -17,33 +18,13 @@
           <% end %>
         </tr>
       </thead>
-      <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-        <% devices.each do |device| %>
-          <tr class="text-gray-700 dark:text-gray-400" for="<%= device.id %>">
-              <% if action_name == "import" %>
-                  <td class="px-4 py-3"><%= check_box_tag "device_ids[]", device.id, false, id: "device_ids_#{device.id}" %></td>
-              <% end %>
-              <td class="px-4 py-3"><%= device.name %></td>
-              <td class="px-4 py-3"><%= device.code %></td>
-              <td class="px-4 py-3"><%= Device.human_enum_name(:status, "#{device.status}") %></td>
-              <td class="px-4 py-3"><%= device.brand&.name %></td>
-              <td class="px-4 py-3"><%= device.category&.name %></td>
-              <td class="px-4 py-3"><%= convert_date_ymd(device.input_date) %></td>
-              <% unless action_name == "import"%>
-              <td class="px-4 py-3">
-                <%= link_to device_path(device), class: "hover:text-indigo-600" do %>
-                  <i class="fa-regular fa-eye"></i>
-                  <%= t "shared.detail" %>
-                <% end %>
-              </td>
-              <% end %>
-          </tr>
-        <% end %>
-          <tr class="text-gray-700">
-            <% if @pagy.present? %>
-              <td class="px-4 py-3 text-sm text-right" colspan="7"><%= pagy_nav(@pagy).html_safe %></td>
-            <% end %>
-          </tr>
+      <tbody is="turbo-frame" class="bg-white divide-y" id="devices">
+        <%= render @devices %>
+        <tr class="text-gray-700">
+          <% if @pagy.present? %>
+            <td class="px-4 py-3 text-sm text-right" colspan="8"><%= pagy_nav(@pagy).html_safe %></td>
+          <% end %>
+        </tr>
       </tbody>
     </table>
   </div>

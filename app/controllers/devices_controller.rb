@@ -1,5 +1,6 @@
 class DevicesController < ApplicationController
-  before_action :set_device, only: %i(show new_sub_devices add_sub_devices)
+  before_action :set_device,
+                only: %i(show edit update new_sub_devices add_sub_devices add_images_device new_images_device)
   before_action :check_device_ids_present, only: :add_sub_devices
   before_action :check_import_file_present, only: :import
   before_action :check_comfirm_device_ids_present, only: :confirm_devices
@@ -7,7 +8,7 @@ class DevicesController < ApplicationController
 
   def index
     @devices = @office.devices.not_draft.without_sub_device
-                      .includes(:brand, :category, :sub_devices, {office: :office_info})
+                      .includes(:brand, :category, :sub_devices, {office: :office_info}).recent
     @devices_belong = @office.devices.have_parent.includes(:brand, :category, :sub_devices, {office: :office_info})
     respond_to do |format|
       format.html{@pagy, @devices = pagy @devices, items: Settings.pagy.config.page.default}
@@ -17,6 +18,33 @@ class DevicesController < ApplicationController
 
   def show; end
 
+  def new
+    @device = current_user.office.devices.build
+  end
+
+  def edit; end
+
+  def create
+    @device = current_user.office.devices.build device_params
+    if @device.save
+      respond_to do |format|
+        format.turbo_stream{flash.now[:notice] = t(".success")}
+      end
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @device.update device_params
+      respond_to do |format|
+        format.turbo_stream{flash.now[:notice] = t(".success")}
+      end
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def new_sub_devices
     @sub_devices = sub_devices.recent
   end
@@ -24,6 +52,18 @@ class DevicesController < ApplicationController
   def add_sub_devices
     @sub_devices = sub_devices.by_ids params[:device_ids]
     @sub_devices.update device_id: @device.id
+  end
+
+  def new_images_device; end
+
+  def add_images_device
+    if @device.update images_device_params
+      respond_to do |format|
+        format.turbo_stream{flash.now[:notice] = t(".success")}
+      end
+    else
+      render :show, status: :unprocessable_entity
+    end
   end
 
   def import
@@ -41,6 +81,14 @@ class DevicesController < ApplicationController
   end
 
   private
+
+  def images_device_params
+    params.require(:device).permit images: []
+  end
+
+  def device_params
+    params.require(:device).permit Device::ATTR_PARAMS
+  end
 
   def sub_devices
     current_user.office.devices.without_sub_device.without_current_device @device.id

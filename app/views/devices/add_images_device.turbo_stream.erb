@@ -1,0 +1,3 @@
+<%= turbo_stream.update :images_device, partial: "devices/images_device/item", locals: {images_device: @device.images} %>
+<%= render_turbo_stream_close_modal %>
+<%= render_turbo_stream_flash_messages %>

@@ -46,6 +46,7 @@ vi:
           ready: "Sẵn sàng"
           fixing: "Đang sửa chữa"
           using: "Đang sử dụng"
+          draft: "Bản nháp"
       request:
         statuses:
           forwarded: "Đã chuyển tiếp"

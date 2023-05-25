@@ -1,0 +1,14 @@
+<% if images_device.present?  %>
+  <%= link_to images_device[0] do %>
+    <%= image_tag images_device[0] %>
+  <% end %>
+<% end %>
+<div class="flex">
+  <% images_device&.drop(1).each do |image_device| %>
+    <div class="mt-4">
+      <%= link_to image_device do %>
+        <%= image_tag image_device %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

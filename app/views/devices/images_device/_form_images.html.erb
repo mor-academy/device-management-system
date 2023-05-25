@@ -1,0 +1,7 @@
+<%= form_with model: device, url: add_images_device_device_path, class: "bg-white p-6", data: {controller: "preview"} do |f| %>
+  <%= f.file_field :images, multiple: true, data: {preview_target: "fileInput"} %>
+  <div data-preview-target="imgPreview" class="flex gap-4"></div>
+  <div class="mt-6 flex items-center justify-start gap-x-6">
+    <%= f.submit "Upload images", class: "cursor-pointer rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+  </div>
+<% end %>

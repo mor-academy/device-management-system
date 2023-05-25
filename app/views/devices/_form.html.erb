@@ -1,0 +1,58 @@
+<%= form_with model: device, class: "bg-white p-10" do |f| %>
+  <div class="space-y-6">
+    <div class="border-b border-gray-900/10 pb-6">
+      <div class="grid gap-x-6 gap-y-8 sm:grid-cols-12">
+        <%= f.hidden_field :office_id, value: device.office.id %>
+        <div class="sm:col-span-full">
+          <div class="relative z-0 w-full mb-6 group">
+            <%= f.text_field :name, class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+            <%= f.label :name, class: "peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %>
+          </div>
+        </div>
+        <div class="sm:col-span-full">
+          <div class="grid md:grid-cols-3 md:gap-6">
+            <div class="relative z-0 w-full mb-6 group">
+              <%= f.text_field :code, class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+              <%= f.label :code, class: "peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %>
+            </div>
+            <div class="relative z-0 w-full mb-6 group">
+              <%= f.text_field :price, class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+              <%= f.label :price, class: "peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %>
+            </div>
+            <div class="relative z-0 w-full mb-6 group">
+              <%= f.text_field :source, class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+              <%= f.label :source, class: "peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %>
+            </div>
+          </div>
+        </div>
+        <div class="sm:col-span-4">
+          <%= f.label :status, class: "block text-sm font-medium leading-6 text-gray-900" %>
+          <div class="mt-2">
+           <%= f.select :status, Device.statuses.keys.map{|status| [(Device.human_enum_name :status, status), status]}, {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          </div>
+        </div>
+        <div class="sm:col-span-4">
+          <%= f.label :brand, class: "block text-sm font-medium leading-6 text-gray-900" %>
+          <div class="mt-2">
+           <%= f.select :brand_id, Brand.all.map{|brand| [brand.name, brand.id]}, {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          </div>
+        </div>
+        <div class="sm:col-span-4">
+          <%= f.label :category, class: "block text-sm font-medium leading-6 text-gray-900" %>
+          <div class="mt-2">
+           <%= f.select :category_id, Category.all.map{|category| [category.name, category.id]}, {}, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          </div>
+        </div>
+        <div class="sm:col-span-full">
+          <%= f.label :description, class: "block text-sm font-medium leading-6 text-gray-900" %>
+          <div class="mt-2 rich-hidden-attachment">
+            <%= f.rich_text_area :description, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div>
+  <div class="mt-6 flex items-center justify-start gap-x-6">
+    <%= f.submit action_name&.to_sym == :edit ? t(".edit_device") : t(".add_device"), class: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+  <div>
+<% end %>
