@@ -25,8 +25,10 @@ Rails.application.routes.draw do
 
       member do
         get :new_sub_devices
+        get :new_images_device
 
         patch :add_sub_devices
+        patch :add_images_device
       end
 
       collection do

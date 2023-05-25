@@ -1,0 +1,7 @@
+<h2 class="my-6 text-2xl font-semibold text-gray-700">
+  <%= t ".edit_device" %>
+</h2>
+
+<%= turbo_frame_tag :global_modal do %>
+  <%= render "form", device: @device %>
+<% end %>

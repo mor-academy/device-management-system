@@ -6,10 +6,20 @@
     <i class="fa-solid fa-file-export"></i>
      <%= t ".download" %>
   <% end %>
-
   <%= link_to import_page_devices_path, class:"py-3 px-4 my-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-green-800 text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 transition-all text-sm dark:focus:ring-gray-900 dark:focus:ring-offset-gray-800" do %>
     <i class="fa-solid fa-upload"></i>
     <%= t ".import" %>
   <% end  %>
 </div>
+<div class="grid grid-cols-4 gap-4 items-center mb-3">
+  <div class="col-span-3"></div>
+  <div>
+    <%= link_to new_device_path, data: {turbo_frame: :global_modal, action: "click->app#openModal"}, class: "float-right rounded-lg pointer-events-auto bg-indigo-600 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-indigo-500" do %>
+      <i class="fa-solid fa-plus mr-2 text-xs"></i>
+      <span class="font-semibold text-xs"><%= t ".add_a_new_device" %></span>
+    <% end %>
+  </div>
+</div>
+<%= turbo_stream_from :devices %>
 <%= render "devices/table", devices: @devices%>
+<%= render "layouts/modals/modal_medium" %>

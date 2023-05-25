@@ -81,3 +81,13 @@ vi:
       history_info:
         file_name: "Tên tập tin"
         input_date: "Ngày nhập"
+
+    form:
+      add_device: "Thêm thiết bị"
+      edit_device: "Sửa thiết bị"
+
+    create:
+      success: "Tạo thành công thiết bị mới"
+
+    update:
+      success: "Đã chỉnh sửa thành công thiết bị"

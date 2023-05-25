@@ -46,6 +46,7 @@ en:
           ready: "Ready"
           fixing: "Under repair"
           using: "Being used"
+          draft: "Draft"
       request:
         statuses:
           forwarded: "Forwarded"

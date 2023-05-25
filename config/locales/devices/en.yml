@@ -81,3 +81,13 @@ en:
       history_info:
         file_name: "File Name"
         input_date: "Input Date"
+      
+    form:
+      add_device: "Add device"
+      edit_device: "Edit device"
+
+    create:
+      success: "Successfully create a new device"
+
+    update:
+      success: "Edited device successfully"
