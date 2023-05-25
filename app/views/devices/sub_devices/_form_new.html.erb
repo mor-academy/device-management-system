@@ -2,7 +2,7 @@
   <%= form_with model: device, url: add_sub_devices_device_path, class: "bg-white p-6" do |f| %>
     <div class="space-y-6">
       <div class="border-b border-gray-900/10">
-        <div class="overflow-auto h-96">
+        <div class="overflow-y-auto h-[400px]">
           <table class="w-full whitespace-no-wrap">
             <thead>
               <tr class="sticky top-0 text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50">
@@ -11,31 +11,9 @@
                 <th class="px-4 py-3"><%= t ".status" %></th>
               </tr>
             </thead>
-            <tbody class="bg-white divide-y">
-              <% @sub_devices.each do |sub_device| %>
-                <tr class="text-gray-700">
-                  <td class="px-4 py-3">
-                    <div class="flex items-center text-sm">
-                      <div class="mr-3">
-                        <%= check_box_tag "device_ids[]", sub_device.id, false, id: "device_ids_#{sub_device.id}" %>
-                      </div>
-                      <div>
-                        <p class="font-semibold text"><%= sub_device.name %></p>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-4 py-3">
-                    <p class="font-semibold text-sm"><%= sub_device.code %></p>
-                  </td>
-                  <td class="px-4 py-3 text-xs">
-                    <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full">
-                      <%= Device.human_enum_name :status, sub_device.status %>
-                    </span>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
+            <tbody class="bg-white divide-y" id="sub_devices_form"></tbody>
           </table>
+          <%= turbo_frame_tag :sub_devices_pagination, src: new_sub_devices_device_path(page: pagy.next, format: :turbo_stream) if pagy.next.present? %>
         </div>
       </div>
     <div>

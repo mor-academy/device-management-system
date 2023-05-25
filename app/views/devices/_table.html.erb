@@ -18,15 +18,13 @@
           <% end %>
         </tr>
       </thead>
-      <tbody is="turbo-frame" class="bg-white divide-y" id="devices">
-        <%= render @devices %>
-        <tr class="text-gray-700">
-          <% if @pagy.present? %>
-            <td class="px-4 py-3 text-sm text-right" colspan="8"><%= pagy_nav(@pagy).html_safe %></td>
-          <% end %>
+      <tbody class="bg-white divide-y" id="devices">
+        <tr id="devices_skeleton">
+          <%= render "devices_skeleton" %>
         </tr>
       </tbody>
     </table>
+    <%= turbo_frame_tag :devices_pagination, src: devices_path(page: pagy.next, format: :turbo_stream) if pagy.next.present? %>
   </div>
 </div>
 <% if action_name == "import" && devices.any? %>

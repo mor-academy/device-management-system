@@ -1,0 +1,20 @@
+<tr class="text-gray-700">
+  <td class="px-4 py-3">
+    <div class="flex items-center text-sm">
+      <div class="mr-3">
+        <%= check_box_tag "device_ids[]", sub_device.id, false, id: "device_ids_#{sub_device.id}" %>
+      </div>
+      <div>
+        <p class="font-semibold text"><%= sub_device.name %></p>
+      </div>
+    </div>
+  </td>
+  <td class="px-4 py-3">
+    <p class="font-semibold text-sm"><%= sub_device.code %></p>
+  </td>
+  <td class="px-4 py-3 text-xs">
+    <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full">
+      <%= Device.human_enum_name :status, sub_device.status %>
+    </span>
+  </td>
+</tr>
