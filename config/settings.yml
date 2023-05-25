@@ -22,3 +22,8 @@ devices:
 
 spec:
   number_of_records_25: 25
+
+skeleton:
+  number_of_records_5: 5
+  number_of_records_4: 4
+  number_of_records_3: 3

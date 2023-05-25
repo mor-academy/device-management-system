@@ -21,5 +21,5 @@
   </div>
 </div>
 <%= turbo_stream_from :devices %>
-<%= render "devices/table", devices: @devices%>
+<%= render "devices/table", devices: @devices, pagy: @pagy %>
 <%= render "layouts/modals/modal_medium" %>

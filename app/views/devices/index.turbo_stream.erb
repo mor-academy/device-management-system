@@ -1,0 +1,39 @@
+<%= turbo_stream.remove :devices_skeleton %>
+
+<%= turbo_stream.append :devices do %>
+  <% @devices.each do |device| %>
+    <tr class="text-gray-700">
+      <% if action_name == "import" %>
+        <td class="px-4 py-3">
+          <%= check_box_tag "device_ids[]", device.id, false, id: "device_ids_#{device.id}" %>
+        </td>
+      <% end %>
+      <td class="px-4 py-3"><%= device.name %></td>
+      <td class="px-4 py-3"><%= device.code %></td>
+      <td class="px-4 py-3"><%= Device.human_enum_name :status, "#{device.status}" %></td>
+      <td class="px-4 py-3"><%= device.brand&.name %></td>
+      <td class="px-4 py-3"><%= device.category&.name %></td>
+      <td class="px-4 py-3"><%= device.office.office_info.name %></td>
+      <td class="px-4 py-3"><%= convert_date_ymd device.input_date %></td>
+      <% unless action_name == "import"%>
+        <td class="px-4 py-3">
+          <%= link_to device_path(device), class: "hover:text-indigo-600" do %>
+            <i class="fa-regular fa-eye"></i>
+            <%= t "shared.detail" %>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+  <% if @pagy.next.present? %>
+   <tr id="devices_skeleton">
+      <%= render "devices_skeleton" %>
+    </tr>
+  <% end %>
+<% end %>
+
+<% if @pagy.next.present? %>
+  <%= turbo_stream.update :devices_pagination do %>
+    <%= turbo_frame_tag :devices_pagination, src: devices_path(page: @pagy.next, format: :turbo_stream), loading: :lazy %>
+  <% end %>
+<% end %> 

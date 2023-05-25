@@ -11,7 +11,8 @@ class DevicesController < ApplicationController
                       .includes(:brand, :category, :sub_devices, {office: :office_info}).recent
     @devices_belong = @office.devices.have_parent.includes(:brand, :category, :sub_devices, {office: :office_info})
     respond_to do |format|
-      format.html{@pagy, @devices = pagy @devices, items: Settings.pagy.config.page.default}
+      format.html{devices_pagy}
+      format.turbo_stream{devices_pagy}
       format.xlsx
     end
   end
@@ -46,7 +47,7 @@ class DevicesController < ApplicationController
   end
 
   def new_sub_devices
-    @sub_devices = sub_devices.recent
+    @pagy, @sub_devices = pagy sub_devices.recent, items: Settings.pagy.config.page.default
   end
 
   def add_sub_devices
@@ -88,6 +89,10 @@ class DevicesController < ApplicationController
 
   def device_params
     params.require(:device).permit Device::ATTR_PARAMS
+  end
+
+  def devices_pagy
+    @pagy, @devices = pagy @devices, items: Settings.pagy.config.page.default
   end
 
   def sub_devices

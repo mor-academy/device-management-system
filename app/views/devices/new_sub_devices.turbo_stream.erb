@@ -1,0 +1,19 @@
+<%= turbo_stream.remove :sub_devices_skeleton %>
+
+<%= turbo_stream.append :sub_devices_form do %>
+  <% @sub_devices.each do |sub_device| %>
+    <%= render "devices/sub_devices/sub_device", sub_device: sub_device %>
+  <% end %>
+
+  <% if @pagy.next.present? %>
+    <tr id="sub_devices_skeleton">
+      <%= render "devices/sub_devices/sub_devices_skeleton" %>
+    </tr>
+  <% end %>
+<% end %>
+
+<% if @pagy.next.present? %>
+  <%= turbo_stream.update :sub_devices_pagination do %>
+    <%= turbo_frame_tag :sub_devices_pagination, src: new_sub_devices_device_path(page: @pagy.next, format: :turbo_stream), loading: :lazy %>
+  <% end %>
+<% end %> 
