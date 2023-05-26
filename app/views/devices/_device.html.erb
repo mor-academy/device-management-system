@@ -5,10 +5,10 @@
   <td class="px-4 py-3 text-sm"><%= device.id %></td>
   <td class="px-4 py-3 text-sm"><%= device.name %></td>
   <td class="px-4 py-3 text-sm"><%= device.code %></td>
-  <td class="px-4 py-3 text-sm"><%= Device.human_enum_name(:status, "#{device.status}") %></td>
+  <td class="px-4 py-3 text-sm"><%= Device.human_enum_name :status, "#{device.status}" %></td>
   <td class="px-4 py-3 text-sm"><%= device.brand&.name %></td>
-  <td class="px-4 py-3 text-sm"><%= device.office&.office_info.name %></td>
-  <td class="px-4 py-3 text-sm"><%= convert_date_ymd(device.input_date) %></td>
+  <td class="px-4 py-3 text-sm"><%= device.office&.office_info&.name %></td>
+  <td class="px-4 py-3 text-sm"><%= convert_date_ymd device.input_date %></td>
   <% unless action_name == "import"%>
     <td class="px-4 py-3 text-sm w-36">
       <%= link_to edit_device_path(device), data: {turbo_frame: :global_modal, action: "click->app#openModal"}, class: "flex items-center gap-[6px] mb-1 hover:text-indigo-600" do %>

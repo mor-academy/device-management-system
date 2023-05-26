@@ -70,11 +70,11 @@ class Imports::Excel::Devices::CreatedListServices
   end
 
   def get_value_brand device
-    group_brands[device[:brand_id]].first.id
+    group_brands[device[:brand_id]]&.first&.id
   end
 
   def get_value_category device
-    group_categories[device[:category_id]].first.id
+    group_categories[device[:category_id]]&.first&.id
   end
 
   def create_new_devices
