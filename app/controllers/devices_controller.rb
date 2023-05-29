@@ -8,7 +8,7 @@ class DevicesController < ApplicationController
 
   def index
     @devices = @office.devices.not_draft.without_sub_device
-                      .includes(:brand, :category, :sub_devices, {office: :office_info}).recent
+                      .includes(:brand, :category, {office: :office_info}).recent
     @devices_belong = @office.devices.have_parent.includes(:brand, :category, :sub_devices, {office: :office_info})
     respond_to do |format|
       format.html{devices_pagy}
@@ -68,8 +68,10 @@ class DevicesController < ApplicationController
   end
 
   def import
-    @import_history = Imports::Excel::Devices::CreatedListServices.new(file: params[:file], user: current_user).perform
-    @devices = @import_history.devices.includes(:brand, :category)
+    @preview_devices =  preview_devices_from_excel
+
+    # @import_history = Imports::Excel::Devices::CreatedListServices.new(file: params[:file], user: current_user).perform
+    # @devices = @import_history.devices.includes(:brand, :category)
   end
 
   def confirm_devices
@@ -81,6 +83,12 @@ class DevicesController < ApplicationController
     end
   end
 
+  def export_example
+    respond_to do |format|
+      format.xlsx
+    end
+  end
+
   private
 
   def images_device_params
@@ -89,6 +97,29 @@ class DevicesController < ApplicationController
 
   def device_params
     params.require(:device).permit Device::ATTR_PARAMS
+  end
+
+  def preview_devices_from_excel
+    if params[:file].present?
+      xlsx = Roo::Spreadsheet.open params[:file]
+      result = []
+      xlsx.sheet(0).each_with_index(sheet_index_value) do |val, index|
+        result.push(val) unless index.zero?
+      end
+      result
+    end
+  end
+
+  def sheet_index_value
+    {
+      name: I18n.t("devices.index.name"),
+      description: I18n.t("devices.index.description"),
+      source: I18n.t("devices.index.source"),
+      brand_id: I18n.t("devices.index.brand"),
+      category_id: I18n.t("devices.index.category"),
+      input_date: I18n.t("devices.index.input_date"),
+      price: I18n.t("devices.index.price")
+    }
   end
 
   def devices_pagy

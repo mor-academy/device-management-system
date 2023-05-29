@@ -1,0 +1,33 @@
+<div class="w-full overflow-hidden rounded-lg shadow-xs border">
+  <div class="w-full">
+    <table class="w-full whitespace-no-wrap">
+      <thead>
+        <tr class="text-xs font-semibold tracking-wide text-left text-gray-800 uppercase border-b bg-gray-50">
+          <th class="px-4 py-3"><%= t ".name" %></th>
+          <th class="px-4 py-3"><%= t ".code" %></th>
+          <th class="px-4 py-3"><%= t ".status" %></th>
+          <th class="px-4 py-3"><%= t ".brand" %></th>
+          <th class="px-4 py-3"><%= t ".category" %></th>
+          <th class="px-4 py-3"><%= t ".office" %></th>
+          <th class="px-4 py-3"><%= t ".input_date" %></th>
+          <th class="px-4 py-3"><%= t ".action" %></th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y" >
+        <% preview_devices.each do |device| %>
+          <% device = Device.new(device) %>
+          <tr id="<%= dom_id device %>" class="text-gray-700">
+            <td class="px-4 py-3 text-sm"><%= device.name %></td>
+            <td class="px-4 py-3 text-sm"><%= device.code %></td>
+            <td class="px-4 py-3 text-sm"><%= Device.human_enum_name :status, "#{device.status}" %></td>
+            <td class="px-4 py-3 text-sm"><%= device.brand&.name %></td>
+            <td class="px-4 py-3 text-sm"><%= device.category&.name %></td>
+            <td class="px-4 py-3 text-sm"><%= device.office&.office_info&.name %></td>
+            <td class="px-4 py-3 text-sm"><%= convert_date_ymd device.input_date %></td>
+            <td class="px-4 py-3 text-sm"><%= "X" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
