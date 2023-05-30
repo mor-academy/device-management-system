@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
       collection do
         get :import_page
+        get :export_example
 
         match :import, via: [:get, :post]
         

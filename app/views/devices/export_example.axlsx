@@ -1,0 +1,27 @@
+wb = xlsx_package.workbook
+ws = wb.styles
+border = {color: "FF000000", style: :thin }
+@style_bold_border = ws.add_style b: true, border: border
+@style_border = ws.add_style b: false, border: border
+@style_bold = ws.add_style(b: true)
+header = ws.add_style bg_color: 'ADD8E6'
+wb.add_worksheet name: t("devices.index.main_devices") do |sheet|
+  render "devices/sheet/devices_pane", sheet: sheet
+  sheet.add_row [
+    "ID",
+    "#{t "devices.index.name"}",
+    "#{t "devices.index.code"}",
+    "#{t "devices.index.description"}",
+    "#{t "devices.index.source"}",
+    "#{t "devices.index.status"}",
+    "#{t "devices.index.brand"}",
+    "#{t "devices.index.input_date"}",
+    "#{t "devices.index.office"}",
+    "#{t "devices.index.category"}",
+    "#{t "devices.index.price"}",
+    "#{t "devices.index.sub_devices"}",
+  ], style: @style_bold_border
+  sheet.add_comment ref: "A1", author: "Admin", text: "Day la ID", visible: false, style: header
+  sheet.add_comment ref: "A1", author: "Admin", text: "Yes We Can! - but I dont think  you need to know about it! Yes We Can! - but I dont think  you need to know about it!", visible: false, style: header
+  sheet.add_comment ref: "B1", author: "Admin", text: "Day la name", visible: false, style: header
+end

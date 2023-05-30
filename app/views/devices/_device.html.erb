@@ -7,6 +7,7 @@
   <td class="px-4 py-3 text-sm"><%= device.code %></td>
   <td class="px-4 py-3 text-sm"><%= Device.human_enum_name :status, "#{device.status}" %></td>
   <td class="px-4 py-3 text-sm"><%= device.brand&.name %></td>
+  <td class="px-4 py-3 text-sm"><%= device.category&.name %></td>
   <td class="px-4 py-3 text-sm"><%= device.office&.office_info&.name %></td>
   <td class="px-4 py-3 text-sm"><%= convert_date_ymd device.input_date %></td>
   <% unless action_name == "import"%>

@@ -18,6 +18,8 @@
           <%= t ".price" %><%= @device.price %>
           <span class="ml-4 mr-4">|</span> 
           <%= t ".brand" %> <%= @device.brand&.name || "No brand" %>
+          <span class="ml-4 mr-4">|</span>
+          <%= t ".category" %>: <%= @device.category&.name || "No category" %>
         </div>
         <h2 class="text-xl font-medium mb-2"><%= t ".description" %><h2>
         <div class="text-gray-500 text-sm">

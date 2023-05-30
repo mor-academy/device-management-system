@@ -10,6 +10,10 @@
     <i class="fa-solid fa-upload"></i>
     <%= t ".import" %>
   <% end  %>
+  <%= link_to export_example_devices_path(format: :xlsx), class:"py-3 px-4 my-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-green-800 text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 transition-all text-sm" do %>
+    <i class="fa-solid fa-file-export"></i>
+     <%= t ".download_example" %>
+  <% end %>
 </div>
 <div class="grid grid-cols-4 gap-4 items-center mb-3">
   <div class="col-span-3"></div>

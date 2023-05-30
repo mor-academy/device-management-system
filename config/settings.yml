@@ -19,6 +19,7 @@ devices:
         y_split: 1
         x_split: 0
         active_pane: "bottom_right"
+    filename_example: "devices_example.xlsx"
 
 spec:
   number_of_records_25: 25
